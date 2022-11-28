@@ -1,4 +1,4 @@
-# ARK-docker
+# ARK-server-docker
 
 > docker 部署 ARK（方舟生存进化）
 
@@ -30,8 +30,8 @@
 1. 创建 steam 用户: TODO （docker 内的 steamCMD 使用了 steam 用户，导致若宿主机使用了 root 用户，会导致在挂载目录后 docker 内无法读写，所以禁止使用）
 2. 安装 python3、docker、docker-compose
 3. 授权 steam 用户: docker ... xxx TODO
-4. 下载此仓库: `git clone --depth 1 --branch master https://github.com/lyy289065406/ark-docker.git`
-5. 进入根目录: `cd ark-docker`
+4. 下载此仓库: `git clone --depth 1 --branch master https://github.com/lyy289065406/ark-server-docker.git`
+5. 进入根目录: `cd ark-server-docker`
 6. 构建镜像: `bin/build.sh`（镜像中不含游戏本体，只有用于下载游戏的 steamCMD ）
 7. 运行镜像: `bin/run.sh`
 8. 安装游戏: `bin/install_game.sh`，此为命令执行后会打开 steamCMD 交互终端，依次输入：
@@ -65,13 +65,13 @@
 1. 创建 steam 用户: TODO （docker 内的 steamCMD 使用了 steam 用户，导致若宿主机使用了 root 用户，会导致在挂载目录后 docker 内无法读写，所以禁止使用）
 2. 安装 python3、docker、docker-compose
 3. 授权 steam 用户: docker ... xxx TODO
-4. 下载此仓库: `git clone --depth 1 --branch master https://github.com/lyy289065406/ark-docker.git`
-5. 进入根目录: `cd ark-docker`
+4. 下载此仓库: `git clone --depth 1 --branch master https://github.com/lyy289065406/ark-server-docker.git`
+5. 进入根目录: `cd ark-server-docker`
 6. 构建镜像: `bin/build.sh`（镜像中不含游戏本体，只有用于下载游戏的 steamCMD ）
 7. 运行镜像: `bin/run.sh`
 8. 拉取 ARK 完整服务端的 git 目录 :
   - 先在 Github 上 Fork https://github.com/lyy289065406/ark
-  - 使用 ssh 拉取仓库到 [ark-docker/volumes/steam/games](./volumes/steam/games) 目录下: `git clone --depth 1 --branch master git@github.com:lyy289065406/ark.git` (ssh 的配置方法参考官方文档 TODO)
+  - 使用 ssh 拉取仓库到 [ark-server-docker/volumes/steam/games](./volumes/steam/games) 目录下: `git clone --depth 1 --branch master git@github.com:lyy289065406/ark.git` (ssh 的配置方法参考官方文档 TODO)
   - 根据 [ark](https://github.com/lyy289065406/ark.git) 的 [README.md](ttps://github.com/lyy289065406/ark.git) 说明补全大文件 TODO
 9. 修改配置 xxxxx TODO
 10. 启动服务端: `bin/ark_start.sh`（首次启动约 15 分钟）
