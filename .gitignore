@@ -1,18 +1,1 @@
-volumes/steam/games/ark/ShooterGame/Binaries/Win64/*
-volumes/steam/games/ark/ShooterGame/Content/Genesis2/Matinee/Stinger/Animation/GEN2_STG_Santiago.uasset
-
-# volumes/steam/games/ark/ShooterGame/Content/Mods/*
-# *.umap
-volumes/steam/games/ark/ShooterGame/Content/Mods/CrystalIsles/LandscapeSublevel_Mainland_Auto9.umap
-volumes/steam/games/ark/ShooterGame/Content/Mods/FjordurOfficial/PGS_LandscapeSublevel.umap
-volumes/steam/games/ark/ShooterGame/Content/Mods/LostIsland/LandscapeSublevel.umap
-volumes/steam/games/ark/ShooterGame/Content/Mods/Ragnarok/Ragnarok_Landscape_V2.umap
-volumes/steam/games/ark/ShooterGame/Content/Mods/TheCenter/TheCenter.umap
-volumes/steam/games/ark/ShooterGame/Content/Mods/Valguero/LandscapeSublevel.umap
-
-volumes/steam/games/ark/ShooterGame/Content/Maps/*
-volumes/steam/games/ark/ShooterGame/Content/Maps/Aberration/AB_Landscape.umap
-volumes/steam/games/ark/ShooterGame/Content/Maps/Extinction/Ext_Landscape.umap
-volumes/steam/games/ark/ShooterGame/Content/Maps/Genesis2/Gen2.umap
-volumes/steam/games/ark/ShooterGame/Content/Maps/ScorchedEarth/SE_Landscape.umap
-volumes/steam/games/ark/ShooterGame/Content/Maps/TheIslandSubMaps/LandscapeSublevel.umap
+volumes
