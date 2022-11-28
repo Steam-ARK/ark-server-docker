@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  ark:
+    # user: "1000:1000"
+    hostname: ARK_SVC
+    container_name: ARK_SVC
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - TZ=Asia/Shanghai
+      - LANG=zh_CN.UTF-8
+      - LANGUAGE=zh_CN.UTF-8
+      - LC_ALL=zh_CN.UTF-8
+    # environment:
+    #   - SESSION_NAME=${SESSION_NAME}
+    #   - SERVER_MAP=${SERVER_MAP}
+    #   - SERVER_PASSWORD=${SERVER_PASSWORD}
+    #   - ADMIN_PASSWORD=${ADMIN_PASSWORD}
+    #   - MAX_PLAYERS=${MAX_PLAYERS}
+    #   - UPDATE_ON_START=${UPDATE_ON_START}
+    #   - BACKUP_ON_STOP=${BACKUP_ON_STOP}
+    #   - PRE_UPDATE_BACKUP=${PRE_UPDATE_BACKUP}
+    #   - WARN_ON_STOP=${WARN_ON_STOP}
+    #   - ENABLE_CROSSPLAY=${ENABLE_CROSSPLAY}
+    #   - DISABLE_BATTLEYE=${DISABLE_BATTLEYE}
+    #   - GAME_MOD_IDS=${GAME_MOD_IDS}
+    volumes:
+      - ./volumes/steam/saved:/home/steam/saved
+      - ./volumes/steam/games:/home/steam/games
+      # - ./volumes/arkmanager:/etc/arkmanager
+    ports:
+      # Port for connections from ARK game client
+      - "7777:7777/udp"
+      # Raw UDP socket port (always Game client port +1)  : 自定义的服务器端口
+      - "7778:7778/udp"
+      # RCON management port: 服务器命令行管理工具 RCON 的连接端口
+      - "27020:27020/tcp"
+      # Steam's server-list port
+      - "27015:27015/udp"
+    networks: 
+      ark:
+        ipv4_address: 172.168.3.2
+    restart: on-failure
+
+
+networks:
+  ark:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet:  172.168.3.0/24
+          gateway: 172.168.3.1
+
+
