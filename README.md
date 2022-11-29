@@ -27,6 +27,8 @@
 
 ## 部署步骤（标准）
 
+TODO ubuntu 一键装机
+
 1. 创建 steam 用户: TODO （docker 内的 steamCMD 使用了 steam 用户，导致若宿主机使用了 root 用户，会导致在挂载目录后 docker 内无法读写，所以禁止使用）
 2. 安装 python3、docker、docker-compose
 3. 授权 steam 用户: docker ... xxx TODO
