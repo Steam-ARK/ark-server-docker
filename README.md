@@ -1,6 +1,6 @@
 # ARK-server-docker
 
-> docker 部署 ARK（方舟生存进化）
+> docker 部署 ARK（方舟-生存进化）
 
 ------
 
