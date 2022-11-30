@@ -77,7 +77,11 @@
 
 ### 0x32 部署 ARK 服务端（Github 通道）
 
-当 [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) 通道无法安装成功时，可使用此方法：
+当 [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) 通道无法安装成功时，可使用此方法（否则应该跳过）：
+
+<details>
+<summary>展开</summary>
+<br/>
 
 1. 创建 [Github](https://github.com/) 账号（若已有则跳过）
 2. 配置 [Github SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
@@ -88,6 +92,7 @@
 
 > 更多细节详见 [ARK](https://github.com/lyy289065406/ark.git) 的 [README.md](ttps://github.com/lyy289065406/ark.git) 说明
 
+</details>
 
 ### 0x33 运行 ARK 服务端
 
