@@ -9,7 +9,7 @@
 STEAM_ARK_DIR="/home/steam/games/ark"
 # 服务端命令行管理工具 RCON 的连接端口
 RCON_PORT=32330
-# 服务器名称（在 steam 服务器上看到的）
+# 服务器名称（在 steam 服务器列表上看到的名称）
 SERVER_NAME="EXP_ARK_Server"
 # 地图名
 SERVER_MAP="TheIsland"
