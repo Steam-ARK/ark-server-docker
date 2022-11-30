@@ -94,137 +94,69 @@
 
 </details>
 
-### 0x33 运行 ARK 服务端
+
+## 0x40 暴露服务
+
+| 协议 | 端口 | 是否必要 | 用途 |
+|:---:|:---:|:---:|:---|
+| UDP | 7777 | 是 | 服务端对玩家开放的端口，已硬编码不可修改 |
+| UDP | 7778 | 是 | 同上 |
+| UDP | 27015 | 是 | 被 steam 服务器列表搜索服务端所用的端口，已硬编码不可修改 |
+| TCP | 32330 | 否 | RCON 服务器在线管理工具的端口 |
+
+以上端口均需要：
+
+- docker 映射到宿主机（已配置到 [docker-compose.yml](./docker-compose.yml)）
+- 主机防火墙准入（Linux 若没有安装 iptables 则不需要）
+- 云主机配置安全组策略
+
+
+## 0x50 运行 ARK 服务端
 
 1. 启动服务端: `bin/run_ark.sh`（首次启动约 15 分钟）
 2. steam 添加服务器: 查看 `->` 服务器 `->` 收藏夹 `->` 添加服务器 `->` `${云主机公网 IP}:27015`
 3. 开始游戏吧 ~
 
 
-### 0x34 关于定制 ARK 启动脚本
+## 0x60 关于定制 ARK 启动配置
 
-1. 首先停止镜像: `bin/stop.sh`
-2. ARK 的核心启动脚本在 `bin/ark.sh`，目前是使用了默认配置
-3. 可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明，修改该脚本
-4. 修改完成后，需要重新构建镜像: `bin/build.sh`
-5. 运行镜像: `bin/run_docker.sh`
-6. 运行服务端: `bin/run_ark.sh`
+通过 `bin/run_ark.[sh/ps1]` 实际上是调用了 ARK 的核心启动脚本 [`bin/ark.sh`](./bin/ark.sh)，它默认配置了一些常用配置项：
 
+| 分类 | 配置项 | 默认值 | 用途 |
+|:---:|:---|:---|:---|
+| 用户可控 | ?SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
+| 用户可控 | ?MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
+| 用户可控 | ?ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
+| 用户可控 | ?ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
+| 用户可控 | ServerMap | TheIsland | 服务器地图 |
+| 用户可控 | ?GameModIds |  | 服务器地图 MOD ID 列表 |
+| 硬编码 | ?RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
+| 硬编码 | ?RCONPort | 32330 | RCON 的服务端口 |
+| 硬编码 | ?ServerAutoForceRespawnWildDinosInterval | | 服务器重启时强制刷新野生恐龙 |
+| 硬编码 | ?AllowCrateSpawnsOnTopOfStructures | | 允许补给箱出现在建筑顶部 |
+| 硬编码 | -ForceAllowCaveFlyers | | 允许飞入洞穴 |
+| 硬编码 | -AutoDestroyStructures | | 允许破坏建筑 |
+| 硬编码 | -NoBattlEye | | 不启动 BattleEye 反作弊工具 |
+| 硬编码 | -crossplay | | 允许 crossplay |
+| 硬编码 | -server | | 用途不明 |
 
-## 暴露服务
+启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改该配置文件。
 
-以下服务端口需要：
+除了上表的配置项，均可在配置文件中修改。否则需要修改脚本 [`bin/ark.sh`](./bin/ark.sh)。
 
-- docker 映射到宿主机（已配置到 [docker-compose.yml](./docker-compose.yml)）
-- 主机防火墙准入（Linux 若没有安装 iptables 则不需要）
-- 云主机配置安全组策略
-
-| 协议 | 端口 | 是否必要 | 用途 |
-|:---:|:---:|:---:|:---|
-| UDP | 7777 | 是 | 当私服的房主开启房间后，其他玩家寻找主机的端口？ |
-| UDP | 7778 | 是 |  |
-| TCP | 27020 | 否 |  |
-| UDP | 27015 | 是 |  |
-
-
-- "7777:7777/udp"
-      # Raw UDP socket port (always Game client port +1)  : 自定义的服务器端口
-      - "7778:7778/udp"
-      # RCON management port: 服务器命令行管理工具 RCON 的连接端口
-      - "27020:27020/tcp"
-      # Steam's server-list port
-      - "27015:27015/udp"
-
-
-
-
-
-
-#其中数字是这游戏的steamapp id
-网站查看https://steamcommunity.com/app
-搜索需要查看的游戏，然后看浏览器网址窗口app后面跟的数值就是这个app的id
-
-
-
-Variable	Default value	Explanation
-SESSION_NAME	Dockerized ARK Server by github.com/hermsi1337	The name of your ARK-session which is visible in game when searching for servers
-SERVER_MAP	TheIsland	Desired map you want to play
-SERVER_PASSWORD	YouShallNotPass	Server password which is required to join your session. (overwrite with empty string if you want to disable password authentication)
-ADMIN_PASSWORD	Th155houldD3f1n3tlyB3Chang3d	Admin-password in order to access the admin console of ARK
-MAX_PLAYERS	20	Maximum number of players to join your session
-UPDATE_ON_START	false	Whether you want to update the ARK-server upon startup or not
-BACKUP_ON_STOP	false	Create a backup before gracefully stopping the ARK-server
-PRE_UPDATE_BACKUP	true	Create a backup before updating ARK-server
-WARN_ON_STOP	true	Broadcast a warning upon graceful shutdown
-ENABLE_CROSSPLAY	false	Enable crossplay. When enabled battleye should be disabled as it likes to disconnect epic players
-DISABLE_BATTLEYE	false	Disable Battleye protection
-ARK_SERVER_VOLUME	/app	Path where the server-files are stored
-GAME_CLIENT_PORT	7777	Exposed game-client port
-UDP_SOCKET_PORT	7778	Raw UDP socket port (always Game client port +1)
-RCON_PORT	27020	Exposed RCON port
-SERVER_LIST_PORT	27015	Exposed server-list port
-GAME_MOD_IDS	empty	Additional game-mods you want to install, seperated by comma. (e.g. GAME_MOD_IDS="487516323,487516324,487516325")
-
-
-
-ShooterGame/Binaries/Linux/ShooterGameServer TheIsland?listen?Port=7779?QueryPort=27017AltSaveDirectoryName=gudao?SessionName="ARK原初-孤岛"?MaxPlayers=30?ServerAutoForceRespawnWildDinosInterval=259200?AllowCrateSpawnsOnTopOfStructures=True -ForceAllowCaveFlyers -AutoDestroyStructures -clusterid=2022 -ClusterDirOverride=/home/steam/ark/arkwq -NoBattlEye -crossplay -nosteamclient -game -server -log
-
-
-
-
-参数说明：
-
-        地图：要开什么地图就在地图位置写入相应的地图名（这里是孤岛）
-
-        端口：服务端的端口（必须唯一）
-
-        搜索端口：在steam上搜索时使用的端口（必须唯一）
-
-        组内名称：在这个服务器上的名字（必须唯一）
-
-        服务器名称：在steam服务器上看到的名称
-
-        最大人数：服务器可容纳的人数
-
-        组名称：这个服务器上开的地图组名称（多个图希望哪些图互通的就设置一样，如一个孤岛的设置是2022，一个畸变的设置也是2022，这俩个图就能互通）
-
-        集群目录：服务器上传缓存的位置玩家上传到方舟的角色和物品的缓存）
-
-ShooterGame/Binaries/Linux/ShooterGameServer 地图?listen?Port=端口?QueryPort=搜索端口AltSaveDirectoryName=组内名称?SessionName="服务器名称"?MaxPlayers=最大人数?ServerAutoForceRespawnWildDinosInterval=259200?AllowCrateSpawnsOnTopOfStructures=True -ForceAllowCaveFlyers -AutoDestroyStructures -clusterid=组名称 -ClusterDirOverride=集群目录 -NoBattlEye -crossplay -nosteamclient -game -server -log
-
-2.游戏配置文件：
-
-        全局文件配置：
-
-在/home/steam/ARK/ShooterGame/Saved/Config/LinuxServer文件夹下的Game.ini和GameUserSettings.ini一般只设置GameUserSettings.ini文件
-
+1. 修改完成后，需要停止镜像: `bin/stop.sh`
+2. 如果修改过 [`bin/ark.sh`](./bin/ark.sh)，还需要重新构建镜像: `bin/build.sh`
+3. 再次运行镜像: `bin/run_docker.sh`
+4. 然后运行服务端: `bin/run_ark.sh`
 
 
 
 ## 参考文档
 
-https://blog.csdn.net/xiaotian2333333/article/details/124733348
-
-
-没用到  https://github.com/arkmanager/ark-server-tools
-
+- 《[Linux 搭建方舟服务器教程 方舟生存进化](https://www.bilibili.com/video/BV1Xp4y1n7pq/)》
+- 《[在 Linux 系统下安装 steamCMD](https://blog.wehaox.com/archives/3.html)》
+- 《[Linux 搭建 ARK 服务器](https://blog.csdn.net/xiaotian2333333/article/details/124733348)》
 - 《[方舟生存进化: docker一键部署](https://ssst0n3.github.io/post/%E6%B8%B8%E6%88%8F/%E6%96%B9%E8%88%9F%E7%94%9F%E5%AD%98%E8%BF%9B%E5%8C%96-docker%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2.html)》
 - 《[ark-server-tools](https://github.com/arkmanager/ark-server-tools)》
 - 《[arkserver](https://github.com/thmhoag/arkserver)》
 - 《[Dockerize ARK managed with ARK-Server-Tools](https://hub.docker.com/r/hermsi/ark-server/)》
-
-
-```
-[S_API FAIL] SteamAPI_Init() failed; SteamAPI_IsSteamRunning() failed.
-/home/buildbot/buildslave/steam_rel_client_linux64/build/src/clientdll/applicationmanager.cpp (3004) : Assertion Failed: CApplicationManager::GetMountVolume: invalid index
-/home/buildbot/buildslave/steam_rel_client_linux64/build/src/clientdll/applicationmanager.cpp (3004) : Assertion Failed: CApplicationManager::GetMountVolume: invalid index
-/home/buildbot/buildslave/steam_rel_client_linux64/build/src/clientdll/applicationmanager.cpp (3155) : Assertion Failed: m_vecInstallBaseFolders.Count() > 0
-```
-这个报错对启动服务器无影响，最少需要启动15分钟
-https://community.teklab.de/thread/9383-ark-gameserver-startet-nicht/
-
-
-
-
-清除分支历史： https://blog.csdn.net/jhsword/article/details/107543884
-ark 服务端上传到 github ?

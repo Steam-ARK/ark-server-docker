@@ -17,27 +17,14 @@ services:
       - ./volumes/steam/saved:/home/steam/saved
       - ./volumes/steam/games:/home/steam/games
     ports:
-      # Port for connections from ARK game client
       - "7777:7777/udp"
-      # Raw UDP socket port (always Game client port +1)  : 自定义的服务器端口
       - "7778:7778/udp"
-      # RCON management port: 服务器命令行管理工具 RCON 的连接端口
-      - "27020:27020/tcp"
-      # Steam's server-list port
       - "27015:27015/udp"
+      - "32330:32330/tcp"
     networks: 
       ark:
         ipv4_address: 172.168.3.2
     restart: on-failure
-
-    # 服务端端口
-# GAME_CLIENT_PORT=7777
-# # 暴露给玩家连接主机的端口（总是 GAME_CLIENT_PORT + 1）
-# UDP_SOCKET_PORT=7778
-# 暴露给 Steam 用于搜索服务时的端口
-# SERVER_LIST_PORT=27015
-# 服务端命令行管理工具 RCON 的连接端口
-RCON_PORT=32330
 
 
 networks:
