@@ -38,7 +38,7 @@
 
 之所以要添加 steam 用户，是因为下面构建的 [SteamCMD docker](https://hub.docker.com/r/cm2network/steamcmd/) 镜像内强制使用了 steam 用户。
 
-由于下面需要从宿主机挂载游戏服务端，如果宿主机使用 root 用户挂载卷，会导致 docker 内的用户没有权限而无法读写。
+由于 docker 需要从宿主机挂载服务端的游戏目录，如果宿主机使用 root 用户挂载，会导致 docker 内的用户没有权限而无法读写。
 
 所以宿主机需要创建一个非 root 用户、而为了方便起见就用了相同的 steam 用户。
 
