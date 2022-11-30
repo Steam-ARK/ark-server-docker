@@ -4,17 +4,17 @@
 
 ------
 
-## 介绍
+## 0x00 介绍
 
 此为 steam 版 ARK 的 docker 服务端，可用于搭建私人联机服务器。
 
 
-## 运行环境
+## 0x10 运行环境
 
 ![](https://img.shields.io/badge/OS|Linux-red.svg) ![](https://img.shields.io/badge/OS|Windows-blue.svg)
 
 
-## 硬件要求
+## 0x10 硬件要求
 
 | 硬件 | 最低配置 | 推荐配置 | 流畅配置 |
 |:---:|:---:|:---:|:---:|
@@ -25,26 +25,43 @@
 > ARK 当前版本（20221129）的服务端大小为 18812537984 字节，约 18G，因为要从 steam 服务器下载，所以国内非常慢甚至连接不上。建议使用香港或韩国的云主机，从海外下载速度较快且不会被 GFW 拦截、国内也有不错的访问速度
 
 
-## 部署步骤（标准）
+## 0x30 部署步骤
 
-TODO ubuntu 一键装机
+### 0x31 预操作
 
-1. 创建 steam 用户: TODO （docker 内的 steamCMD 使用了 steam 用户，导致若宿主机使用了 root 用户，会导致在挂载目录后 docker 内无法读写，所以禁止使用）
-2. 安装 python3、docker、docker-compose
-3. 授权 steam 用户: docker ... xxx TODO
-4. 下载此仓库: `git clone --depth 1 --branch master https://github.com/lyy289065406/ark-server-docker.git`
-5. 进入根目录: `cd ark-server-docker`
-6. 构建镜像: `bin/build.sh`（镜像中不含游戏本体，只有用于下载游戏的 steamCMD ）
-7. 运行镜像: `bin/run.sh`
-8. 安装游戏: `bin/install_game.sh`，此为命令执行后会打开 steamCMD 交互终端，依次输入：
-  - 创建 ARK 游戏目录: `force_install_dir /home/steam/games/ark`
-  - 匿名登录 steam : `login anonymous`
-  - 下载 ARK 服务端: `app_update 376030`（约 18G，超级慢而且可能失败）
-9. 修改配置 xxxxx TODO
-10. 启动服务端: `bin/ark_start.sh`（首次启动约 15 分钟）
-11. steam 添加服务器: 查看 `->` 服务器 `->` 收藏夹 `->` 添加服务器 `->` `${云主机公网 IP}:27015`
-12. 开始游戏吧 ~
+以下命令使用 root 用户执行: 
 
+1. 安装 [python3](https://www.python.org/downloads/)、 docker、 docker-compose、 git
+2. 创建 steam 用户: `adduser steam`
+3. 添加 steam 用户到 docker 组: `usermod -aG docker steam`
+4. 切换到 steam 用户: `su - steam`
+
+之所以要添加 steam 用户，是因为下面构建的 [steamCMD docker](https://hub.docker.com/r/cm2network/steamcmd/) 镜像内强制使用了 steam 用户。
+
+由于下面需要从宿主机挂载游戏服务端，如果宿主机使用 root 用户挂载卷，会导致 docker 内的用户没有权限而无法读写。
+
+所以宿主机需要创建一个非 root 用户、而为了方便起见就用了相同的 steam 用户。
+
+
+### 0x31 部署镜像
+
+以下命令使用 steam 用户执行: 
+
+1. 下载此仓库: `git clone --depth 1 --branch master https://github.com/lyy289065406/ark-server-docker.git`
+2. 进入根目录: `cd ark-server-docker`
+3. 构建镜像: `bin/build.sh`（镜像中不含游戏本体，只有用于下载游戏的 steamCMD ）
+4. 运行镜像: `bin/run.sh`
+
+
+### 0x32 部署 ARK 服务端（steam 通道）
+
+安装游戏: `bin/install_game.sh`，此为命令执行后会打开 steamCMD 交互终端，依次输入：
+
+1. 创建 ARK 游戏目录: `force_install_dir /home/steam/games/ark`
+2. 匿名登录 steam : `login anonymous`
+3. 下载 ARK 服务端: `app_update 376030`
+
+游戏约 18G，超级慢而且可能失败
 
 <details>
 <summary>关于 steam app id 376030 ...</summary>
@@ -58,6 +75,26 @@ TODO ubuntu 一键装机
 | 376030 | ARK: Survival Evolved Dedicated Server | ARK 专用服务端 |
 
 </details>
+
+
+### 0x32 部署 ARK 服务端（Github 通道）
+
+1. 创建 [Github](https://github.com/) 账号（若已有则跳过）
+2. Fork
+2. 拉取 ARK 完整服务端的 git 目录 :
+  - 先在 Github 上 Fork https://github.com/lyy289065406/ark
+  - 使用 ssh 拉取仓库到 [ark-server-docker/volumes/steam/games](./volumes/steam/games) 目录下: `git clone --depth 1 --branch master git@github.com:lyy289065406/ark.git` (ssh 的配置方法参考官方文档 TODO)
+  - 根据 [ark](https://github.com/lyy289065406/ark.git) 的 [README.md](ttps://github.com/lyy289065406/ark.git) 说明补全大文件 TODO
+
+### 0x33 运行 ARK 服务端
+
+9. 根据 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的配置定制启动脚本: `bin/ark_start.sh`（也可不修改，使用默认脚本）
+10. 启动服务端: `bin/ark_start.sh`（首次启动约 15 分钟）
+11. steam 添加服务器: 查看 `->` 服务器 `->` 收藏夹 `->` 添加服务器 `->` `${云主机公网 IP}:27015`
+12. 开始游戏吧 ~
+
+
+
 
 
 ## 部署步骤（非标准）
@@ -107,8 +144,7 @@ TODO ubuntu 一键装机
 
 
 https://developer.valvesoftware.com/wiki/SteamCMD#Docker
-https://hub.docker.com/r/cm2network/steamcmd/
-服务器配置：https://ark.fandom.com/wiki/Server_configuration
+
 
 
 
