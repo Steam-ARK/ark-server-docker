@@ -22,7 +22,7 @@
 | 内存 | 6G | 8G | 16G |
 | 硬盘 | 30G | 50G | 100G |
 
-> ARK 当前版本（20221129）的服务端大小为 18812537984 字节，约 18G，因为要从 steam 服务器下载，所以国内非常慢甚至连接不上。建议使用香港或韩国的云主机，从海外下载速度较快且不会被 GFW 拦截、国内也有不错的访问速度
+> ARK 当前版本（20221129）的服务端大小为 18812537984 bytes，约 18G，因为要从 steam 服务器下载，所以国内非常慢甚至连接不上。建议使用香港或韩国的云主机，从海外下载速度较快且不会被 GFW 拦截、国内也有不错的访问速度
 
 
 ## 0x30 部署步骤
@@ -79,11 +79,13 @@
 
 ### 0x32 部署 ARK 服务端（Github 通道）
 
+FIXME  参考 ark
+
 1. 创建 [Github](https://github.com/) 账号（若已有则跳过）
 2. Fork
 2. 拉取 ARK 完整服务端的 git 目录 :
   - 先在 Github 上 Fork https://github.com/lyy289065406/ark
-  - 使用 ssh 拉取仓库到 [ark-server-docker/volumes/steam/games](./volumes/steam/games) 目录下: `git clone --depth 1 --branch master git@github.com:lyy289065406/ark.git` (ssh 的配置方法参考官方文档 TODO)
+  - 使用 ssh 拉取仓库到 [ark-server-docker/volumes/steam/games](./volumes/steam/games) 目录下: `git clone --depth 1 --branch master git@github.com:${你的用户名}/ark.git` (ssh 的配置方法参考官方文档 TODO)
   - 根据 [ark](https://github.com/lyy289065406/ark.git) 的 [README.md](ttps://github.com/lyy289065406/ark.git) 说明补全大文件 TODO
 
 ### 0x33 运行 ARK 服务端
