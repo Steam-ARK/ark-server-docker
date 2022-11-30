@@ -49,13 +49,13 @@
 
 1. 下载此仓库: `git clone --depth 1 --branch master https://github.com/lyy289065406/ark-server-docker.git`
 2. 进入根目录: `cd ark-server-docker`
-3. 构建镜像: `bin/build.sh`（镜像中不含游戏本体，只有用于下载游戏的 [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) ）
-4. 运行镜像: `bin/run_docker.sh`
+3. 构建镜像: `bin/build.[sh|ps1]`（镜像中不含游戏本体，只有用于下载游戏的 [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) ）
+4. 运行镜像: `bin/run_docker.[sh|ps1]`
 
 
 ### 0x32 部署 ARK 服务端（SteamCMD 通道）
 
-安装游戏: `bin/install_game.sh`，此为命令执行后会打开 [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) 交互终端，依次输入：
+安装游戏: `bin/install_game.[sh|ps1]`，此为命令执行后会打开 [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) 交互终端，依次输入：
 
 1. 创建 ARK 游戏目录: `force_install_dir /home/steam/games/ark`
 2. 匿名登录 steam : `login anonymous`
@@ -88,7 +88,7 @@
 3. Frok 此仓库（目的是使用 SSH 下载）: `https://github.com/lyy289065406/ark.git`
 4. 创建并切换工作目录: `volumes/steam/games`
 5. 使用 SSH 下载到该目录: `git clone --depth 1 --branch master git@github.com:${你的用户名}/ark.git`
-6. 解压大文件: `bin/unpack_7zip.sh` 或 `bin/unpack_7zip.ps1`（需要预装 [7-zip](https://www.7-zip.org/) 命令行）
+6. 解压大文件: `bin/unpack_7zip.[sh|ps1]`（需要预装 [7-zip](https://www.7-zip.org/) 命令行）
 
 > 更多细节详见 [ARK](https://github.com/lyy289065406/ark.git) 的 [README.md](ttps://github.com/lyy289065406/ark.git) 说明
 
@@ -113,7 +113,7 @@
 
 ## 0x50 运行 ARK 服务端
 
-1. 启动服务端: `bin/run_ark.sh`（首次启动约 15 分钟）
+1. 启动服务端: `bin/run_ark.[sh|ps1]`（首次启动约 15 分钟）
 2. steam 添加服务器: 查看 `->` 服务器 `->` 收藏夹 `->` 添加服务器 `->` `${云主机公网 IP}:27015`
 3. 开始游戏吧 ~
 
@@ -144,10 +144,10 @@
 
 除了上表的**可控**配置项，均可在配置文件中修改。否则需要修改脚本 [`bin/ark.sh`](./bin/ark.sh)。
 
-1. 修改完成后，需要停止镜像: `bin/stop.sh`
-2. 如果修改过 [`bin/ark.sh`](./bin/ark.sh)，还需要重新构建镜像: `bin/build.sh`
-3. 再次运行镜像: `bin/run_docker.sh`
-4. 然后运行服务端: `bin/run_ark.sh`
+1. 修改完成后，需要停止镜像: `bin/stop.[sh|ps1]`
+2. 如果修改过 [`bin/ark.sh`](./bin/ark.sh)，还需要重新构建镜像: `bin/build.[sh|ps1]`
+3. 再次运行镜像: `bin/run_docker.[sh|ps1]`
+4. 然后运行服务端: `bin/run_ark.[sh|ps1]`
 
 
 
