@@ -124,12 +124,12 @@
 
 | 分类 | 配置项 | 默认值 | 用途 |
 |:---:|:---|:---|:---|
-| 用户可控 | SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
-| 用户可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
-| 用户可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
-| 用户可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
-| 用户可控 | ServerMap | TheIsland | 服务器地图 |
-| 用户可控 | GameModIds |  | 服务器地图 MOD ID 列表 |
+| 可控 | SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
+| 可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
+| 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
+| 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
+| 可控 | ServerMap | TheIsland | 服务器地图 |
+| 可控 | GameModIds |  | 服务器地图 MOD ID 列表 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
 | 硬编码 | ServerAutoForceRespawnWildDinosInterval | | 服务器重启时强制刷新野生恐龙 |
