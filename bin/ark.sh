@@ -17,9 +17,10 @@ SERVER_MAP="TheIsland"
 GAME_MOD_IDS=""
 # 最大玩家数
 MAX_PLAYERS=10
+# 玩家加入服务器时需要提供的密码
+SERVER_PASSWORD="EXP123456"
 
-
-set -- `getopt n:p:m:i: "$@"`
+set -- `getopt n:m:i:c:p "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
@@ -29,7 +30,9 @@ do
         shift ;;
     -i) GAME_MOD_IDS="$2"
         shift ;;
-    -p) MAX_PLAYERS="$2"
+    -c) MAX_PLAYERS="$2"
+        shift ;;
+    -p) SERVER_PASSWORD="$2"
         shift ;;
   esac
   shift
@@ -39,6 +42,7 @@ done
 ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP}?listen\
 ?SessionName=${SERVER_NAME}\
 ?MaxPlayers=${MAX_PLAYERS}\
+?ServerPassword=${SERVER_PASSWORD}\
 ?RCONEnabled=True\
 ?RCONPort=${RCON_PORT}\
 ?GameModIds=${GAME_MOD_IDS}\
