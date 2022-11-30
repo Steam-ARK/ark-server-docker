@@ -22,7 +22,7 @@
 | 内存 | 6G | 8G | 16G |
 | 硬盘 | 30G | 50G | 100G |
 
-> ARK 当前版本（20221129）的服务端大小为 18812537984 bytes，约 18G，因为要从 steam 服务器下载，所以国内非常慢甚至连接不上。建议使用香港或韩国的云主机，从海外下载速度较快且不会被 GFW 拦截、国内也有不错的访问速度
+> ARK 当前版本的服务端大小为 18812537984 bytes，约 18G，因为要从 steam 服务器下载，所以国内非常慢甚至连接不上。建议使用香港或韩国的云主机，从海外下载速度较快且不会被 GFW 拦截、国内也有不错的访问速度
 
 
 ## 0x30 部署步骤
@@ -124,21 +124,21 @@
 
 | 分类 | 配置项 | 默认值 | 用途 |
 |:---:|:---|:---|:---|
-| 用户可控 | ?SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
-| 用户可控 | ?MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
-| 用户可控 | ?ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
-| 用户可控 | ?ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
+| 用户可控 | SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
+| 用户可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
+| 用户可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
+| 用户可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
 | 用户可控 | ServerMap | TheIsland | 服务器地图 |
-| 用户可控 | ?GameModIds |  | 服务器地图 MOD ID 列表 |
-| 硬编码 | ?RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
-| 硬编码 | ?RCONPort | 32330 | RCON 的服务端口 |
-| 硬编码 | ?ServerAutoForceRespawnWildDinosInterval | | 服务器重启时强制刷新野生恐龙 |
-| 硬编码 | ?AllowCrateSpawnsOnTopOfStructures | | 允许补给箱出现在建筑顶部 |
-| 硬编码 | -ForceAllowCaveFlyers | | 允许飞入洞穴 |
-| 硬编码 | -AutoDestroyStructures | | 允许破坏建筑 |
-| 硬编码 | -NoBattlEye | | 不启动 BattleEye 反作弊工具 |
-| 硬编码 | -crossplay | | 允许 crossplay |
-| 硬编码 | -server | | 用途不明 |
+| 用户可控 | GameModIds |  | 服务器地图 MOD ID 列表 |
+| 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
+| 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
+| 硬编码 | ServerAutoForceRespawnWildDinosInterval | | 服务器重启时强制刷新野生恐龙 |
+| 硬编码 | AllowCrateSpawnsOnTopOfStructures | | 允许补给箱出现在建筑顶部 |
+| 硬编码 | ForceAllowCaveFlyers | | 允许飞入洞穴 |
+| 硬编码 | AutoDestroyStructures | | 允许破坏建筑 |
+| 硬编码 | NoBattlEye | | 不启动 BattleEye 反作弊工具 |
+| 硬编码 | crossplay | | 允许 crossplay |
+| 硬编码 | server | | 用途不明 |
 
 启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改该配置文件。
 
@@ -151,12 +151,12 @@
 
 
 
-## 参考文档
+## 0xFF 参考文档
 
 - 《[Linux 搭建方舟服务器教程 方舟生存进化](https://www.bilibili.com/video/BV1Xp4y1n7pq/)》
 - 《[在 Linux 系统下安装 steamCMD](https://blog.wehaox.com/archives/3.html)》
 - 《[Linux 搭建 ARK 服务器](https://blog.csdn.net/xiaotian2333333/article/details/124733348)》
 - 《[方舟生存进化: docker一键部署](https://ssst0n3.github.io/post/%E6%B8%B8%E6%88%8F/%E6%96%B9%E8%88%9F%E7%94%9F%E5%AD%98%E8%BF%9B%E5%8C%96-docker%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2.html)》
+- 《[Dockerize ARK managed with ARK-Server-Tools](https://hub.docker.com/r/hermsi/ark-server/)》
 - 《[ark-server-tools](https://github.com/arkmanager/ark-server-tools)》
 - 《[arkserver](https://github.com/thmhoag/arkserver)》
-- 《[Dockerize ARK managed with ARK-Server-Tools](https://hub.docker.com/r/hermsi/ark-server/)》
