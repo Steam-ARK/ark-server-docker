@@ -2,7 +2,7 @@
 # 运行 docker 服务
 #------------------------------------------------
 # 命令执行示例：
-# bin/run.ps1 -svc_pwd "${SPWD}" -admin_pwd "${APWD}" -max_players "${AMOUNT}" -svc_map "${MAP_NAME}" -game_mod_ids "{ID1},{ID2},...,{IDn}"
+# bin/run_docker.ps1 -svc_pwd "${SPWD}" -admin_pwd "${APWD}" -max_players "${AMOUNT}" -svc_map "${MAP_NAME}" -game_mod_ids "{ID1},{ID2},...,{IDn}"
 #------------------------------------------------
 
 param(
