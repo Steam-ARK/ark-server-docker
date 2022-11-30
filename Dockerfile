@@ -26,20 +26,12 @@ RUN ln -s /usr/bin/python3 /usr/bin/python && \
     ln -s /usr/bin/fromdos /usr/bin/dos2unix 
 RUN python -m pip install --upgrade pip
 
-
-# 安装 ark-server-tools（没用）
-# RUN apt-get install -y coreutils findutils perl rsync
-# RUN apt-get install -y perl-modules lsof libc6-i386 libgcc1 bzip2
-# RUN curl -sL https://git.io/arkmanager | bash -s steam
-
-# 安装 ARK
-# RUN arkmanager install
+# 添加 ARK 启动脚本
 RUN mkdir -p /home/steam/bin
 ADD ./bin/ark.sh /home/steam/bin/ark.sh
 
-
 # 入口
-WORKDIR /home/steam/steamcmd
+WORKDIR /home/steam
 RUN echo "alias ll='ls -l'" >> /root/.bashrc
 ADD ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod a+x /docker-entrypoint.sh

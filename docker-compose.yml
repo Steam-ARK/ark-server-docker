@@ -2,7 +2,7 @@ version: '3'
 
 services:
   ark:
-    # user: "1000:1000"
+    user: "${U_ID}:${G_ID}"
     hostname: ARK_SVC
     container_name: ARK_SVC
     build:
@@ -13,23 +13,9 @@ services:
       - LANG=zh_CN.UTF-8
       - LANGUAGE=zh_CN.UTF-8
       - LC_ALL=zh_CN.UTF-8
-    # environment:
-    #   - SESSION_NAME=${SESSION_NAME}
-    #   - SERVER_MAP=${SERVER_MAP}
-    #   - SERVER_PASSWORD=${SERVER_PASSWORD}
-    #   - ADMIN_PASSWORD=${ADMIN_PASSWORD}
-    #   - MAX_PLAYERS=${MAX_PLAYERS}
-    #   - UPDATE_ON_START=${UPDATE_ON_START}
-    #   - BACKUP_ON_STOP=${BACKUP_ON_STOP}
-    #   - PRE_UPDATE_BACKUP=${PRE_UPDATE_BACKUP}
-    #   - WARN_ON_STOP=${WARN_ON_STOP}
-    #   - ENABLE_CROSSPLAY=${ENABLE_CROSSPLAY}
-    #   - DISABLE_BATTLEYE=${DISABLE_BATTLEYE}
-    #   - GAME_MOD_IDS=${GAME_MOD_IDS}
     volumes:
       - ./volumes/steam/saved:/home/steam/saved
       - ./volumes/steam/games:/home/steam/games
-      # - ./volumes/arkmanager:/etc/arkmanager
     ports:
       # Port for connections from ARK game client
       - "7777:7777/udp"
@@ -43,6 +29,15 @@ services:
       ark:
         ipv4_address: 172.168.3.2
     restart: on-failure
+
+    # 服务端端口
+# GAME_CLIENT_PORT=7777
+# # 暴露给玩家连接主机的端口（总是 GAME_CLIENT_PORT + 1）
+# UDP_SOCKET_PORT=7778
+# 暴露给 Steam 用于搜索服务时的端口
+# SERVER_LIST_PORT=27015
+# 服务端命令行管理工具 RCON 的连接端口
+RCON_PORT=32330
 
 
 networks:

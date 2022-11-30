@@ -12,6 +12,7 @@ CONTAINER_NAME="ARK_SVC"
 CONTAINER_ID=`docker ps -aq --filter name="$CONTAINER_NAME"`
 if [[ "${CONTAINER_ID}x" = "x" ]] ; then
     echo "[$CONTAINER_NAME] 容器没有运行 ..."
+    
 else
     echo "请在 steam 终端内依次输入以下命令 :"
     echo '1. [创建游戏目录]: force_install_dir /home/steam/games/${GAME_NAME}'
