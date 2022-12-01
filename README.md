@@ -75,7 +75,7 @@
 
 | APP ID | 游戏名称 | 描述 |
 |:---:|:---|:---|
-| 346110 | ARK: Survival Evolved | ARK 客户端 |
+| 346110 | ARK: Survival Evolved | ARK 游戏客户端 |
 | 376030 | ARK: Survival Evolved Dedicated Server | ARK 专用服务端 |
 
 </details>
@@ -198,6 +198,30 @@
 - 日志目录: `./volumes/steam/games/ark/ShooterGame/Saved/Logs/*`
 
 迁移前可以执行脚本 `bin/backup.[sh|ps1]` 将其备份到 [backup](./backup) 目录。
+
+
+## 0x90 安装 Mod
+
+1. 先到 ARK 的创意工坊订阅希望安装的 MOD（订阅后会自动下载）
+2. 同时 Mod 说明里面会提供一个 MOD ID，记下来
+3. 打开 steam 的 MOD 安装目录 `SteamLibrary\steamapps\workshop\content\346110`（346110 就是前面提到的 ARK 游戏客户端的 APP ID）
+4. 目录下有一个以 MOD ID 命名的文件夹，有时可能还会有以 MOD ID 命名的 `*.mod` 文件，复制它们
+5. 粘贴到 ARK 服务端 `./volumes/steam/games/ark/ShooterGame/Content/Mods` 的目录下
+6. 重启 ARK，并且启动命令需要指定 MOD ID 的参数: `bin/run_ark.[sh|ps1] -i ${MOD_ID}`（用逗号分隔多个 MOD ID）
+
+![](./imgs/09.jpg)
+
+
+## 0xE0 更多脚本说明
+
+- 构建 ARK 环境镜像: `bin/build.[sh|ps1]`
+- 运行 ARK 环境容器: `bin/run_docker.[sh|ps1]`
+- 安装 ARK 服务端: `bin/install_game.[sh|ps1]`
+- 运行 ARK 服务端: `bin/run_ark.[sh|ps1]`
+- 进入 ARK 环境容器终端: `bin/terminal.[sh|ps1]`
+- 停止 ARK 服务端与环境容器: `bin/stop.[sh|ps1]`
+- 备份 ARK 服务端存档和配置文件: `bin/backup.[sh|ps1]`
+- 清除 ARK 服务端存档、配置和日志文件: `bin/clean.[sh|ps1]`
 
 
 ## 0xFF 参考文档
