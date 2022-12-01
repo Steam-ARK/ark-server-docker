@@ -149,7 +149,7 @@
 通过 `bin/run_ark.[sh/ps1]` 实际上是调用了 ARK 的核心启动脚本 [`bin/ark.sh`](./bin/ark.sh)，它默认配置了一些常用配置项：
 
 | 分类 | 配置项 | 默认值 | 用途 |
-|:---:|:---|:---|:---|
+|:---:|:---|:---|:-TheIsland
 | 可控 | SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
 | 可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
 | 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |

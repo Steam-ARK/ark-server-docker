@@ -10,7 +10,7 @@ STEAM_ARK_DIR="/home/steam/games/ark"
 # 服务器名称（在 steam 服务器列表上看到的名称）
 SERVER_NAME="EXP_ARK_Server"
 # 地图名
-SERVER_MAP="Ragnarok"
+SERVER_MAP="TheIsland"
 # 地图 MOD ID 列表，用英文逗号分隔
 GAME_MOD_IDS=""
 # 最大玩家数

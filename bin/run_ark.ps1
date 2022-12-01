@@ -15,7 +15,7 @@
 param(
     [string]$u="1000",
     [string]$n="EXP_ARK_Server",
-    [string]$m="Ragnarok",
+    [string]$m="TheIsland",
     [string]$i="",
     [int]$c=10, 
     [string]$p="EXP123456", 
