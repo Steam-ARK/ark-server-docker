@@ -33,7 +33,7 @@ if([String]::IsNullOrEmpty($CONTAINER_ID)) {
     Write-Host "[$CONTAINER_NAME] 容器没有运行 ..."
 
 } else {
-    docker exec -it $CONTAINER_ID sh -c "/home/steam/bin/ark.sh -n ${SERVER_NAME} -m ${SERVER_MAP} -i ${GAME_MOD_IDS} -c ${MAX_PLAYERS} -p ${SERVER_PASSWORD} -a ${ADMIN_PASSWORD}"
+    docker exec -d $CONTAINER_ID sh -c "/home/steam/bin/ark.sh -n ${SERVER_NAME} -m ${SERVER_MAP} -i ${GAME_MOD_IDS} -c ${MAX_PLAYERS} -p ${SERVER_PASSWORD} -a ${ADMIN_PASSWORD}"
     Write-Host "ARK 启动中 ..."
     Write-Host "稍后请刷新 steam 服务器列表 ..."
 }
