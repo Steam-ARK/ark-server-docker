@@ -149,22 +149,22 @@
 通过 `bin/run_ark.[sh/ps1]` 实际上是调用了 ARK 的核心启动脚本 [`bin/ark.sh`](./bin/ark.sh)，它默认配置了一些常用配置项：
 
 | 分类 | 配置项 | 默认值 | 用途 |
-|:---:|:---|:---|:-TheIsland
+|:---:|:---|:---|:---|
 | 可控 | SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
 | 可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
 | 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
 | 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
 | 可控 | ServerMap | TheIsland | 服务器地图 |
-| 可控 | GameModIds |  | 服务器地图 MOD ID 列表 |
+| 可控 | GameModIds | - | 服务器地图 MOD ID 列表 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
 | 硬编码 | ServerAutoForceRespawnWildDinosInterval | | 服务器重启时强制刷新野生恐龙 |
 | 硬编码 | AllowCrateSpawnsOnTopOfStructures | | 允许补给箱出现在建筑顶部 |
-| 硬编码 | ForceAllowCaveFlyers | | 允许飞入洞穴 |
-| 硬编码 | AutoDestroyStructures | | 随着时间推移，自动销毁附近废弃的部落建筑 |
-| 硬编码 | NoBattlEye | | 不启动 BattleEye 反作弊工具 |
-| 硬编码 | crossplay | | 允许 crossplay |
-| 硬编码 | server | | 用途不明 |
+| 硬编码 | ForceAllowCaveFlyers | - | 允许飞入洞穴 |
+| 硬编码 | AutoDestroyStructures | - | 随着时间推移，自动销毁附近废弃的部落建筑 |
+| 硬编码 | NoBattlEye | - | 不启动 BattleEye 反作弊工具 |
+| 硬编码 | crossplay | - | 允许 crossplay |
+| 硬编码 | server | - | 用途不明 |
 
 启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改该配置文件。
 
