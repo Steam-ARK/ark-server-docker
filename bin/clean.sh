@@ -12,10 +12,13 @@ ARK_CONFIG_DIR="${ARK_APP_DIR}/ShooterGame/Saved/Config"
 ARK_LOGS_DIR="${ARK_APP_DIR}/ShooterGame/Saved/Logs"
 
 
-$CACHE_DIRS = "${ARK_SAVED_DIR}" "${ARK_CONFIG_DIR}" "${ARK_LOGS_DIR}"
-for $dir in $CACHE_DIRS
-do
-    echo "remove $dir ..."
-    rm -rf $dir
-done
+echo "remove ${ARK_SAVED_DIR} ..."
+rm -rf ${ARK_SAVED_DIR}
+
+echo "remove ${ARK_CONFIG_DIR} ..."
+rm -rf ${ARK_CONFIG_DIR}
+
+echo "remove ${ARK_LOGS_DIR} ..."
+rm -rf ${ARK_LOGS_DIR}
+
 echo "done ."
