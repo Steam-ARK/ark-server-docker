@@ -120,7 +120,12 @@
 
 ## 0x50 运行 ARK 服务端
 
-1. 启动 ARK 服务端: `bin/run_ark.[sh|ps1] -p ${服务器密码}`（首次启动约 15 分钟）
+1. 启动 ARK 服务端: `bin/run_ark.[sh|ps1] -p ${服务器密码}`（默认密码已经公开，建议重新指定）
+  - ARK 启动约需 10 ~ 15 分钟，如果想验证是否启动成功，可以进入 docker 终端: `bin/terminal.[sh|ps1]`
+  - 输入命令 `netstat -nua` 查看当前监听的 UDP 端口，只要把 7777 和 7778 端口刷出来则表示已成功启动:
+
+![](./imgs/08.jpg)
+
 2. steam 添加服务器: 
   - 查看 `->` 服务器 `->` 收藏夹 `->` 
   - 添加服务器 `->` 填写 `${云主机公网 IP}:27015` -> 在此地址上寻找游戏 ...
@@ -149,7 +154,7 @@
 | 可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
 | 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
 | 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
-| 可控 | ServerMap | Ragnarok | 服务器地图 |
+| 可控 | ServerMap | TheIsland | 服务器地图 |
 | 可控 | GameModIds |  | 服务器地图 MOD ID 列表 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
@@ -178,6 +183,8 @@
 1. 停止镜像: `bin/stop.[sh|ps1]`
 2. 运行镜像: `bin/run_docker.[sh|ps1]`
 3. 运行 ARK: `bin/run_ark.[sh|ps1]`
+
+> 当服务端已经下载完成后，其实可以使用 root 用户启动 ARK 的，有需要可以在上述命令后面添加 `-u root`
 
 ![](./imgs/01.jpg)
 
