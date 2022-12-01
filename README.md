@@ -1,12 +1,16 @@
 # ARK-server-docker
 
-> docker 部署 ARK（方舟-生存进化）
+> docker 一键部署 ARK（方舟-生存进化）
 
 ------
 
 ## 0x00 介绍
 
 此为 steam 版 ARK 的 docker 服务端，可用于搭建私人联机服务器。
+
+搭建过程只用到官方原生的 [SteamCMD docker](https://hub.docker.com/r/cm2network/steamcmd/) 和 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 配置。
+
+> 网上其他比较热门 ARK 部署工具，都没有在此工程中引入，所以其配置项均不适用
 
 
 ## 0x10 运行环境
@@ -145,7 +149,7 @@
 | 可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
 | 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
 | 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
-| 可控 | ServerMap | TheIsland | 服务器地图 |
+| 可控 | ServerMap | Ragnarok | 服务器地图 |
 | 可控 | GameModIds |  | 服务器地图 MOD ID 列表 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |

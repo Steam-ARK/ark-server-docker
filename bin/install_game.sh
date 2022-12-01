@@ -22,7 +22,7 @@ else
     echo "   [ARK 示例命令]: app_update 376030"
     echo '4. [更新（可选）]: app_update ${GAME_ID} validate'
     echo "   [ARK 示例命令]: app_update 376030 validate"
-    docker exec -it $CONTAINER_ID /home/steam/steamcmd/steamcmd.sh
+    docker exec -it -u 1000 $CONTAINER_ID /home/steam/steamcmd/steamcmd.sh
 fi
 
 echo "安装脚本终止."

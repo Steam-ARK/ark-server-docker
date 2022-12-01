@@ -5,4 +5,8 @@
 # bin/build.sh
 #------------------------------------------------
 
+
+# 使用 root 用户启动
+U_ID=0 \
+G_ID=0 \
 docker-compose build

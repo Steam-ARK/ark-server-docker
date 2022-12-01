@@ -1,8 +1,9 @@
 # PowerShell
-# Í£Ö¹ docker ·şÎñ
+# åœæ­¢ docker æœåŠ¡
 #------------------------------------------------
-# ÃüÁîÖ´ĞĞÊ¾Àı£º
+# å‘½ä»¤æ‰§è¡Œç¤ºä¾‹ï¼š
 # bin/stop.ps1
 #------------------------------------------------
 
 docker-compose down
+Write-Host "The ARK and Docker is stopped ."

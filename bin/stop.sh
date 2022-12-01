@@ -6,3 +6,4 @@
 #------------------------------------------------
 
 docker-compose down
+echo "The ARK and Docker is stopped ."

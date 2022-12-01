@@ -22,7 +22,7 @@ if([String]::IsNullOrEmpty($CONTAINER_ID)) {
     Write-Host "   [ARK 示例命令]: app_update 376030"
     Write-Host '4. [更新（可选）]: app_update ${GAME_ID} validate'
     Write-Host "   [ARK 示例命令]: app_update 376030 validate"
-    docker exec -it $CONTAINER_ID /home/steam/steamcmd/steamcmd.sh
+    docker exec -it -u 1000 $CONTAINER_ID /home/steam/steamcmd/steamcmd.sh
 }
 
 Write-Host "安装脚本终止."
