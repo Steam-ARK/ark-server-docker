@@ -20,6 +20,7 @@
 |:---:|:---:|:---:|:---:|
 | CPU | 2C | 4C | 8C|
 | 内存 | 6G | 8G | 16G |
+| 虚拟内存 | 4G | 4G | 4G |
 | 硬盘 | 30G | 50G | 100G |
 
 > ARK 当前版本的服务端大小为 18812537984 bytes，约 18G，因为要从 steam 服务器下载，所以国内非常慢甚至连接不上。建议使用香港或韩国的云主机，从海外下载速度较快且不会被 GFW 拦截、国内也有不错的访问速度
@@ -32,9 +33,10 @@
 以下命令使用 root 用户执行: 
 
 1. 安装 [python3](https://www.python.org/downloads/)、 docker、 docker-compose、 git
-2. 创建 steam 用户: `adduser steam`
-3. 添加 steam 用户到 docker 组: `usermod -aG docker steam`
-4. 切换到 steam 用户: `su - steam`
+2. 设置虚拟内存（推荐 4G）
+3. 创建 steam 用户: `adduser steam`
+4. 添加 steam 用户到 docker 组: `usermod -aG docker steam`
+5. 切换到 steam 用户: `su - steam`
 
 之所以要添加 steam 用户，是因为下面构建的 [SteamCMD docker](https://hub.docker.com/r/cm2network/steamcmd/) 镜像内强制使用了 steam 用户。
 
@@ -88,7 +90,8 @@
 3. Frok 此仓库（目的是使用 SSH 下载）: `https://github.com/lyy289065406/ark.git`
 4. 创建并切换工作目录: `volumes/steam/games`
 5. 使用 SSH 下载到该目录: `git clone --depth 1 --branch master git@github.com:${你的用户名}/ark.git`
-6. 解压大文件: `bin/unpack_7zip.[sh|ps1]`（需要预装 [7-zip](https://www.7-zip.org/) 命令行）
+6. 切换工作目录: `cd ark`
+7. 解压大文件: `bin/unpack_7zip.[sh|ps1]`（需要预装 [7-zip](https://www.7-zip.org/) 命令行）
 
 > 更多细节详见 [ARK](https://github.com/lyy289065406/ark.git) 的 [README.md](ttps://github.com/lyy289065406/ark.git) 说明
 
@@ -149,7 +152,7 @@
 | 硬编码 | ServerAutoForceRespawnWildDinosInterval | | 服务器重启时强制刷新野生恐龙 |
 | 硬编码 | AllowCrateSpawnsOnTopOfStructures | | 允许补给箱出现在建筑顶部 |
 | 硬编码 | ForceAllowCaveFlyers | | 允许飞入洞穴 |
-| 硬编码 | AutoDestroyStructures | | 允许破坏建筑 |
+| 硬编码 | AutoDestroyStructures | | 随着时间推移，自动销毁附近废弃的部落建筑 |
 | 硬编码 | NoBattlEye | | 不启动 BattleEye 反作弊工具 |
 | 硬编码 | crossplay | | 允许 crossplay |
 | 硬编码 | server | | 用途不明 |
