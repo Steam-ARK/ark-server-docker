@@ -158,13 +158,13 @@
 | 可控 | GameModIds | - | 服务器地图 MOD ID 列表 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
-| 硬编码 | ServerAutoForceRespawnWildDinosInterval | | 服务器重启时强制刷新野生恐龙 |
-| 硬编码 | AllowCrateSpawnsOnTopOfStructures | | 允许补给箱出现在建筑顶部 |
-| 硬编码 | ForceAllowCaveFlyers | - | 允许飞入洞穴 |
-| 硬编码 | AutoDestroyStructures | - | 随着时间推移，自动销毁附近废弃的部落建筑 |
-| 硬编码 | NoBattlEye | - | 不启动 BattleEye 反作弊工具 |
-| 硬编码 | crossplay | - | 允许 crossplay |
-| 硬编码 | server | - | 用途不明 |
+| 硬编码 | ServerAutoForceRespawnWildDinosInterval |  | 服务器重启时强制刷新野生恐龙 |
+| 硬编码 | AllowCrateSpawnsOnTopOfStructures |  | 允许补给箱出现在建筑顶部 |
+| 硬编码 | ForceAllowCaveFlyers |  | 允许飞入洞穴 |
+| 硬编码 | AutoDestroyStructures |  | 随着时间推移，自动销毁附近废弃的部落建筑 |
+| 硬编码 | NoBattlEye |  | 不启动 BattleEye 反作弊工具 |
+| 硬编码 | crossplay |  | 允许 crossplay |
+| 硬编码 | server |  | 用途不明 |
 
 启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改该配置文件。
 
