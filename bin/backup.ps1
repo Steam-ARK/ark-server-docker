@@ -1,7 +1,7 @@
 #!/bin/sh
-# Â§á‰ªΩ ARK ÁöÑÂ≠òÊ°£„ÄÅÈÖçÁΩÆ
+# ±∏∑› ARK µƒ¥Êµµ/≈‰÷√
 #------------------------------------------------
-# Á§∫‰æãÔºöbin/backup.ps1
+#  æ¿˝£∫bin/backup.ps1
 #------------------------------------------------
 
 $STEAM_DIR = "./volumes/steam"
@@ -11,13 +11,28 @@ $ARK_SAVED_DIR = "${ARK_APP_DIR}/ShooterGame/Saved/SavedArks"
 $ARK_CONFIG_DIR = "${ARK_APP_DIR}/ShooterGame/Saved/Config"
 
 $BACKUP_DIR = "./backup"
-$VERSION = Get-Date -format "yyMMddHH"
+$VERSION = Get-Date -format "yyyyMMddHH"
 $LATEST_BACKUP_DIR = "${BACKUP_DIR}/${VERSION}"
+$LATEST_BACKUP_FILE = "${LATEST_BACKUP_DIR}.zip"
 
-if (Test-Path ${LATEST_BACKUP_DIR}) {
-    Remove-Item ${LATEST_BACKUP_DIR} -Recurse -Force
+Write-Host "…æ≥˝ 1 –° ±ƒ⁄µƒ÷ÿ∏¥±∏∑› ..."
+if (Test-Path ${LATEST_BACKUP_FILE}) {
+    Remove-Item "${LATEST_BACKUP_FILE}" -Recurse -Force
 }
-mkdir ${LATEST_BACKUP_DIR}
 
-Copy-Item "${ARK_SAVED_DIR}/*" -Destination ${LATEST_BACKUP_DIR}
-Copy-Item "${ARK_CONFIG_DIR}/*" -Destination ${LATEST_BACKUP_DIR}
+Write-Host "¥¥Ω®±∏∑›ƒø¬º ..."
+mkdir "${LATEST_BACKUP_DIR}"
+
+Write-Host "∏¥÷∆¥Êµµ/≈‰÷√Œƒº˛ ..."
+Copy-Item "${ARK_SAVED_DIR}" -Destination "${LATEST_BACKUP_DIR}" -Recurse -Force
+Copy-Item "${ARK_CONFIG_DIR}" -Destination "${LATEST_BACKUP_DIR}" -Recurse -Force
+
+Write-Host "—πÀı¥Êµµ/≈‰÷√Œƒº˛ ..."
+Compress-Archive -Path "${LATEST_BACKUP_DIR}" -DestinationPath "${LATEST_BACKUP_FILE}"
+
+Write-Host "…æ≥˝¡Ÿ ±ƒø¬º ..."
+if (Test-Path ${LATEST_BACKUP_DIR}) {
+    Remove-Item "${LATEST_BACKUP_DIR}" -Recurse -Force
+}
+
+Write-Host "±∏∑›ÕÍ≥…: ${LATEST_BACKUP_FILE}"
