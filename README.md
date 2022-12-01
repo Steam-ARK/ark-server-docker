@@ -175,6 +175,18 @@
 ![](./imgs/01.jpg)
 
 
+## 0x80 迁移服务
+
+服务启动后会自动生成以下 3 个目录：
+
+- 配置目录: `./volumes/steam/games/ark/ShooterGame/Saved/Config/*`
+- 存档目录: `./volumes/steam/games/ark/ShooterGame/Saved/SavedArks/*`
+- 日志目录: `./volumes/steam/games/ark/ShooterGame/Saved/Logs/*`
+
+迁移时只需备份【配置目录】和【存档目录】即可。
+
+
+
 ## 0xFF 参考文档
 
 - 《[Linux 搭建方舟服务器教程 方舟生存进化](https://www.bilibili.com/video/BV1Xp4y1n7pq/)》
