@@ -122,12 +122,12 @@
 
 1. 启动 ARK 服务端: `bin/run_ark.[sh|ps1] -p ${服务器密码}`（默认密码已经公开，建议重新指定）
   - ARK 启动约需 10 ~ 15 分钟，如果想验证是否启动成功，可以进入 docker 终端: `bin/terminal.[sh|ps1]`
-  - 输入命令 `netstat -nua` 查看当前监听的 UDP 端口，只要把 7777 和 7778 端口刷出来则表示已成功启动:
+  - 输入命令 `netstat -nua` 查看当前监听的 UDP 端口，只要把 7777 和 7778 端口刷出来则表示已成功启动
 
 ![](./imgs/08.jpg)
 
 2. steam 添加服务器: 
-  - 查看 `->` 服务器 `->` 收藏夹 `->` 
+  - 查看 `->` 服务器 `->` 收藏夹
   - 添加服务器 `->` 填写 `${云主机公网 IP}:27015` -> 在此地址上寻找游戏 ...
   - 当在列表中看到自己的服务器名字后，点击 将选定游戏服务器添加至收藏夹
 
@@ -155,7 +155,7 @@
 | 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
 | 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
 | 可控 | ServerMap | TheIsland | 服务器地图 |
-| 可控 | GameModIds | - | 服务器地图 MOD ID 列表 |
+| 可控 | GameModIds |   | 服务器地图 MOD ID 列表 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
 | 硬编码 | ServerAutoForceRespawnWildDinosInterval |  | 服务器重启时强制刷新野生恐龙 |
