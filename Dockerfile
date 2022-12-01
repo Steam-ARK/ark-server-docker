@@ -32,7 +32,8 @@ ADD ./bin/ark.sh /home/steam/bin/ark.sh
 
 # 入口
 WORKDIR /home/steam
-RUN echo "alias ll='ls -l'" >> /root/.bashrc
+RUN echo "alias ll='ls -l'" >> /root/.bashrc && \
+    echo "alias ll='ls -l'" >> /home/steam/.bashrc
 ADD ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod a+x /docker-entrypoint.sh
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
