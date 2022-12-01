@@ -1,14 +1,14 @@
 # PowerShell
-# å¯åŠ¨ ARK æœåŠ¡
-# æ›´å¤šé…ç½®å‚æ•°è§: https://ark.fandom.com/wiki/Server_configuration
+# Æô¶¯ ARK ·şÎñ
+# ¸ü¶àÅäÖÃ²ÎÊı¼û: https://ark.fandom.com/wiki/Server_configuration
 #------------------------------------------------
-# ç¤ºä¾‹ï¼šbin/run_ark.ps1 
-#           [-n ${ServerName}]      # æœåŠ¡å™¨åç§°ï¼ˆåœ¨ steam æœåŠ¡å™¨ä¸Šçœ‹åˆ°çš„ï¼‰
-#           [-m ${MapName}]         # åœ°å›¾å
-#           [-i ${ModIds}]          # åœ°å›¾ MOD ID åˆ—è¡¨ï¼Œç”¨è‹±æ–‡é€—å·åˆ†éš”
-#           [-c ${PlayerAmount}]    # æœ€å¤§ç©å®¶æ•°
-#           [-p ${ServerPassword}]  # æœåŠ¡å™¨å¯†ç 
-#           [-a ${AminPassword}]    # ç®¡ç†å‘˜å¯†ç 
+# Ê¾Àı£ºbin/run_ark.ps1 
+#           [-n ${ServerName}]      # ·şÎñÆ÷Ãû³Æ£¨ÔÚ steam ·şÎñÆ÷ÉÏ¿´µ½µÄ£©
+#           [-m ${MapName}]         # µØÍ¼Ãû
+#           [-i ${ModIds}]          # µØÍ¼ MOD ID ÁĞ±í£¬ÓÃÓ¢ÎÄ¶ººÅ·Ö¸ô
+#           [-c ${PlayerAmount}]    # ×î´óÍæ¼ÒÊı
+#           [-p ${ServerPassword}]  # ·şÎñÆ÷ÃÜÂë
+#           [-a ${AminPassword}]    # ¹ÜÀíÔ±ÃÜÂë
 #------------------------------------------------
 
 param(
@@ -30,10 +30,10 @@ $ADMIN_PASSWORD = $a
 $CONTAINER_NAME = "ARK_SVC"
 $CONTAINER_ID = (docker ps -aq --filter name="$CONTAINER_NAME")
 if([String]::IsNullOrEmpty($CONTAINER_ID)) {
-    Write-Host "[$CONTAINER_NAME] å®¹å™¨æ²¡æœ‰è¿è¡Œ ..."
+    Write-Host "[$CONTAINER_NAME] ÈİÆ÷Ã»ÓĞÔËĞĞ ..."
 
 } else {
     docker exec -it $CONTAINER_ID sh -c "/home/steam/bin/ark.sh -n ${SERVER_NAME} -m ${SERVER_MAP} -i ${GAME_MOD_IDS} -c ${MAX_PLAYERS} -p ${SERVER_PASSWORD} -a ${ADMIN_PASSWORD}"
-    Write-Host "ARK å¯åŠ¨ä¸­ ..."
-    Write-Host "ç¨åè¯·åˆ·æ–° steam æœåŠ¡å™¨åˆ—è¡¨ ..."
+    Write-Host "ARK Æô¶¯ÖĞ ..."
+    Write-Host "ÉÔºóÇëË¢ĞÂ steam ·şÎñÆ÷ÁĞ±í ..."
 }
