@@ -10,7 +10,7 @@
 
 搭建过程只用到官方原生的 [SteamCMD docker](https://hub.docker.com/r/cm2network/steamcmd/) 和 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 配置。
 
-> 网上其他比较热门 ARK 部署工具，都没有在此工程中引入，所以其配置项均不适用
+> 此工程没有引入网上其他比较热门的 ARK 部署工具，所以它们的配置项均不适用
 
 
 ## 0x10 运行环境
@@ -184,7 +184,7 @@
 2. 运行镜像: `bin/run_docker.[sh|ps1]`
 3. 运行 ARK: `bin/run_ark.[sh|ps1]`
 
-> 当服务端已经下载完成后，其实可以使用 root 用户启动 ARK 的，有需要可以在上述命令后面添加 `-u root`
+> 当服务端已经通过 SteamCMD 下载完成后，其实已经不需要 steam 用户了。此时若需要使用 root 用户，可以在上述命令后面添加 `-u root`
 
 ![](./imgs/01.jpg)
 
@@ -197,8 +197,7 @@
 - 存档目录: `./volumes/steam/games/ark/ShooterGame/Saved/SavedArks/*`
 - 日志目录: `./volumes/steam/games/ark/ShooterGame/Saved/Logs/*`
 
-迁移时只需备份【配置目录】和【存档目录】即可。
-
+迁移前可以执行脚本 `bin/backup.[sh|ps1]` 将其备份到 [backup](./backup) 目录。
 
 
 ## 0xFF 参考文档
