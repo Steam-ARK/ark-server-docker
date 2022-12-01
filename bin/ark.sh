@@ -43,7 +43,7 @@ do
 done
 
 
-${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP}?listen\
+nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP}?listen\
 ?SessionName=${SERVER_NAME}\
 ?MaxPlayers=${MAX_PLAYERS}\
 ?ServerPassword=${SERVER_PASSWORD}\
@@ -57,5 +57,5 @@ ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP}?list
     -AutoDestroyStructures \
     -NoBattlEye \
     -crossplay \
-    -server 
-
+    -server \
+&

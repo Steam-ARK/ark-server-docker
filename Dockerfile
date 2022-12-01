@@ -19,7 +19,7 @@ RUN apt-get install -y locales && \
     locale-gen
 
 # 安装系统必要组件
-RUN apt-get install -y curl wget vim zip unzip git telnet net-tools cron logrotate rsyslog tofrodos procps
+RUN apt-get install -y curl wget vim zip unzip git telnet net-tools cron logrotate rsyslog tofrodos procps screen
 RUN apt-get install -y python3 python3-pip
 RUN ln -s /usr/bin/python3 /usr/bin/python && \
     ln -s /usr/bin/todos /usr/bin/unix2dos && \
