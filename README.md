@@ -156,6 +156,7 @@
 | 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
 | 可控 | ServerMap | TheIsland | 服务器地图 |
 | 可控 | GameModIds |   | 服务器地图 MOD ID 列表 |
+| 硬编码 | serverPVE | True | PVE 模式 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
 | 硬编码 | ServerAutoForceRespawnWildDinosInterval |  | 服务器重启时强制刷新野生恐龙 |
@@ -164,7 +165,6 @@
 | 硬编码 | AutoDestroyStructures |  | 随着时间推移，自动销毁附近废弃的部落建筑 |
 | 硬编码 | NoBattlEye |  | 不启动 BattleEye 反作弊工具 |
 | 硬编码 | crossplay |  | 允许跨平台（Epic 和 Steam 互通） |
-| 硬编码 | serverPVE | True | PVE 模式 |
 
 启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改该配置文件。
 

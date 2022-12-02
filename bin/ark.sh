@@ -48,6 +48,7 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
 ?MaxPlayers=${MAX_PLAYERS}\
 ?ServerPassword=${SERVER_PASSWORD}\
 ?ServerAdminPassword=${ADMIN_PASSWORD}\
+?serverPVE=True\
 ?RCONEnabled=True\
 ?RCONPort=${RCON_PORT}\
 ?GameModIds=${GAME_MOD_IDS}\
@@ -57,5 +58,4 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
     -AutoDestroyStructures \
     -NoBattlEye \
     -crossplay \
-    -serverPVE \
 &
