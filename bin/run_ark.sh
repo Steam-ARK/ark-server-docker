@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 启动 ARK 服务
 # 更多配置参数见: https://ark.fandom.com/wiki/Server_configuration
 #------------------------------------------------
@@ -20,7 +20,7 @@ MAX_PLAYERS=10
 SERVER_PASSWORD="EXP123456"
 ADMIN_PASSWORD="ADMIN654321"
 
-set -- `getopt n:m:i:c:p:a:u "$@"`
+set -- `getopt n:m:i:c:p:a:u: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in

@@ -7,7 +7,7 @@
 
 ID=1000
 
-set -- `getopt u "$@"`
+set -- `getopt u: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # 进入 ARK 容器的交互终端
 #------------------------------------------------
 # 示例：bin/terminal.sh
@@ -7,7 +7,7 @@
 
 USER="1000"
 
-set -- `getopt u "$@"`
+set -- `getopt u: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
