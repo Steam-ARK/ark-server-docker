@@ -48,7 +48,7 @@
 
 所以宿主机需要创建一个非 root 用户、而为了方便起见就用了相同的 steam 用户。
 
-> **之后的所有命令必须使用 steam 用户执行。**
+> **之后的所有命令必须使用 steam 用户执行**
 
 
 ### 0x31 部署镜像
@@ -57,6 +57,8 @@
 2. 进入根目录: `cd ark-server-docker`
 3. 构建镜像: `bin/build.[sh|ps1]`（镜像中不含游戏本体，只有用于下载游戏的 [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) ）
 4. 运行镜像: `bin/run_docker.[sh|ps1]`
+
+> 如果不想自己构建镜像，可以使用现成的镜像: [expm02/ark-server-docker:latest](https://hub.docker.com/repository/docker/expm02/ark-server-docker)
 
 
 ### 0x32 部署 ARK 服务端（SteamCMD 通道）
@@ -207,7 +209,6 @@
 # 例如: /home/steam/workspace/github/ark-server-docker
 0 */1 * * * cd ${ARK_DIR} && bin/backup.sh > /tmp/backup.log
 ```
-
 
 
 ## 0x90 安装 MOD
