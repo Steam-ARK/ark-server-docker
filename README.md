@@ -160,10 +160,10 @@
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
 | 硬编码 | ServerAutoForceRespawnWildDinosInterval |  | 服务器重启时强制刷新野生恐龙 |
 | 硬编码 | AllowCrateSpawnsOnTopOfStructures |  | 允许补给箱出现在建筑顶部 |
-| 硬编码 | ForceAllowCaveFlyers |  | 允许飞入洞穴 |
+| 硬编码 | ForceAllowCaveFlyers |  | 允许翼龙进入洞穴 |
 | 硬编码 | AutoDestroyStructures |  | 随着时间推移，自动销毁附近废弃的部落建筑 |
 | 硬编码 | NoBattlEye |  | 不启动 BattleEye 反作弊工具 |
-| 硬编码 | crossplay |  | 允许 crossplay |
+| 硬编码 | crossplay |  | 允许跨平台（Epic 和 Steam 互通） |
 | 硬编码 | server |  | 用途不明 |
 
 启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改该配置文件。
@@ -200,7 +200,7 @@
 迁移前可以执行脚本 `bin/backup.[sh|ps1]` 将其备份到 [backup](./backup) 目录。
 
 
-## 0x90 安装 Mod
+## 0x90 安装 MOD
 
 1. 先到 ARK 的创意工坊订阅希望安装的 MOD（订阅后会自动下载）
 2. 同时 Mod 说明里面会提供一个 MOD ID，记下来
@@ -210,6 +210,19 @@
 6. 重启 ARK，并且启动命令需要指定 MOD ID 的参数: `bin/run_ark.[sh|ps1] -i ${MOD_ID}`（用逗号分隔多个 MOD ID）
 
 ![](./imgs/09.jpg)
+
+
+当前默认已安装的 MOD 如下，启动服务时按需选择开启即可：
+
+| 订阅地址 | id | name | 用途 |
+|:---:|:---:|:---|:---|
+| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=1404697612) | 1404697612 | `Awesome SpyGlass!` | A+ 望远镜 |
+| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=849372965) | 849372965 | `HG Stacking Mod 1000-90` | 物品叠加上限 `+1000` 负重 `-50%` |
+| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=768023924) | 842913750 | `HG Stacking Mod 2500-50` | 物品叠加上限 `+2500` 负重 `-50%` |
+| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=768023924) | 768023924 | `HG Stacking Mod 2500-90` | 物品叠加上限 `+2500` 负重 `-90%` |
+| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=849985437) | 849985437 | `HG Stacking Mod 5000-90` | 物品叠加上限 `+5000` 负重 `-90%` |
+| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=928102085) | 928102085 | `HG Stacking Mod 10000-90` | 物品叠加上限 `+10000` 负重 `-90%` |
+| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=2885013943) | 2885013943 | `ARK: Monster Additions!` | 添加【怪物猎人:世界】中出现的怪物 |
 
 
 ## 0xE0 更多脚本说明
