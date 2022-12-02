@@ -13,8 +13,8 @@ services:
       - LANG=zh_CN.UTF-8
       - LANGUAGE=zh_CN.UTF-8
       - LC_ALL=zh_CN.UTF-8
-    volumes:
-      - ./volumes/steam/games:/home/steam/games
+    # volumes:
+    #   - ./volumes/steam/games:/home/steam/games
     ports:
       - "7777:7777/udp"
       - "7778:7778/udp"
