@@ -203,7 +203,9 @@
 
 ```
 # 每小时备份一次存档
-0 */1 * * * /bin/bash /home/steam/workspace/github/ark-server-docker/bin/backup.sh
+# 其中把 ${ARK_DIR} 换成实际 ark-server-docker 工程的绝对路径
+# 例如: /home/steam/workspace/github/ark-server-docker
+0 */1 * * * cd ${ARK_DIR} && bin/backup.sh > /tmp/backup.log
 ```
 
 
