@@ -11,8 +11,8 @@ STEAM_ARK_DIR="/home/steam/games/ark"
 SERVER_NAME="EXP_ARK_Server"
 # 地图名
 SERVER_MAP="TheIsland"
-# 地图 MOD ID 列表，用英文逗号分隔
-GAME_MOD_IDS=""
+# 创意工坊的 MOD ID 列表，用英文逗号分隔
+MOD_IDS=""
 # 最大玩家数
 MAX_PLAYERS=10
 # 玩家加入服务器时需要提供的密码
@@ -30,7 +30,7 @@ do
         shift ;;
     -m) SERVER_MAP="$2"
         shift ;;
-    -i) GAME_MOD_IDS="$2"
+    -i) MOD_IDS="$2"
         shift ;;
     -c) MAX_PLAYERS="$2"
         shift ;;
@@ -51,7 +51,7 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
 ?serverPVE=True\
 ?RCONEnabled=True\
 ?RCONPort=${RCON_PORT}\
-?GameModIds=${GAME_MOD_IDS}\
+?ActiveMods=${MOD_IDS}\
 ?ServerAutoForceRespawnWildDinosInterval\
 ?AllowCrateSpawnsOnTopOfStructures=True\
     -ForceAllowCaveFlyers \
