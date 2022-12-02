@@ -3,11 +3,12 @@ version: '3'
 services:
   ark:
     user: "${U_ID}:${G_ID}"
-    hostname: ARK_SVC
+    image: expm02/ark-server-docker:latest
+    # build:
+    #   context: .
+    #   dockerfile: ./Dockerfile
     container_name: ARK_SVC
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    hostname: ARK_SVC
     environment:
       - TZ=Asia/Shanghai
       - LANG=zh_CN.UTF-8
