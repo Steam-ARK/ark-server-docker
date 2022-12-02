@@ -238,6 +238,7 @@
 ## 0xE0 更多脚本说明
 
 - 构建 ARK 环境镜像: `bin/build.[sh|ps1]`
+- 发布 ARK 环境镜像: `bin/deploy.[sh|ps1]`
 - 运行 ARK 环境容器: `bin/run_docker.[sh|ps1]`
 - 安装 ARK 服务端: `bin/install_game.[sh|ps1]`
 - 运行 ARK 服务端: `bin/run_ark.[sh|ps1]`
