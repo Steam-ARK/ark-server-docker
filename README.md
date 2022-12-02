@@ -199,6 +199,14 @@
 
 迁移前可以执行脚本 `bin/backup.[sh|ps1]` 将其备份到 [backup](./backup) 目录。
 
+建议设置 `crontab -e` 定时任务自动备份 :
+
+```
+# 每小时备份一次存档
+0 */1 * * * /bin/bash /home/steam/workspace/github/ark-server-docker/bin/backup.sh
+```
+
+
 
 ## 0x90 安装 MOD
 
