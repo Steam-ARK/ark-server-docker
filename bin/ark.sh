@@ -59,5 +59,4 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
     -AutoDestroyStructures \
     -NoBattlEye \
     -crossplay \
-    -automanagedmods \
 &
