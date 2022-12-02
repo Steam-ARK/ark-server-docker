@@ -22,7 +22,7 @@ ADMIN_PASSWORD="ADMIN654321"
 # 服务端管理工具 RCON 的连接端口
 RCON_PORT=32330
 
-set -- `getopt n:m:i:c:p:a "$@"`
+set -- `getopt n:m:i:c:p:a: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
@@ -51,6 +51,7 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
 ?serverPVE=True\
 ?RCONEnabled=True\
 ?RCONPort=${RCON_PORT}\
+?GameModIds=${MOD_IDS}\
 ?ActiveMods=${MOD_IDS}\
 ?ServerAutoForceRespawnWildDinosInterval\
 ?AllowCrateSpawnsOnTopOfStructures=True\
