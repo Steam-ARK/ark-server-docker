@@ -236,7 +236,7 @@
 | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=731604991) | 731604991 | `Structures Plus (S+)` | 建筑辅助：摆放辅助、重叠地基等 |
 | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=889745138) | 889745138 | `Awesome Teleporters!` | 传送门：可以在任何位置放置传送点 |
 | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=2885013943) | 2885013943 | `ARK: Monster Additions!` | 添加【怪物猎人:世界】中出现的怪物 |
-| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=902616446) | 902616446 | `Dino Colourizer!` | 可以给恐龙的可上色标记位置 |
+| [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=902616446) | 902616446 | `Dino Colourizer!` | 可以给恐龙可上色以标记位置 |
 
 
 
