@@ -223,7 +223,7 @@
 当前默认已安装的 MOD 如下，使用 `bin/run_ark.[sh|ps1]` 脚本启动服务器时，通过 `-i ${MOD_IDS}` 按需指定即可：
 
 | 订阅地址 | id | name | 分类 | 用途 |
-|:---:|:---:|:---|:---|:---:|
+|:---:|:---:|:---|:---:|:---|
 | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=1404697612) | 1404697612 | `Awesome SpyGlass!` | 功能 | A+ 望远镜：超级神器，辅助瞄准、查看情报等 |
 | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=849372965) | 849372965 | `HG Stacking Mod 1000-90` | 功能 | 物品叠加上限 `+1000` 负重 `-50%` |
 | [Link](https://steamcommunity.com/sharedfiles/filedetails/?id=768023924) | 842913750 | `HG Stacking Mod 2500-50` | 功能 | 物品叠加上限 `+2500` 负重 `-50%` |
