@@ -157,7 +157,8 @@
 | 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
 | 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
 | 可控 | ServerMap | TheIsland | 服务器地图 |
-| 可控 | GameModIds |   | 服务器地图 MOD ID 列表 |
+| 可控 | GameModIds |   | 服务器已安装支持的 MOD ID 列表 |
+| 可控 | ActiveMods |   | 服务器当前激活的 MOD ID 列表 |
 | 硬编码 | serverPVE | True | PVE 模式 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
@@ -167,8 +168,12 @@
 | 硬编码 | AutoDestroyStructures |  | 随着时间推移，自动销毁附近废弃的部落建筑 |
 | 硬编码 | NoBattlEye |  | 不启动 BattleEye 反作弊工具 |
 | 硬编码 | crossplay |  | 允许跨平台（Epic 和 Steam 互通） |
+| 硬编码 | server |  | 作为服务器启动（可有可无） |
+| 硬编码 | servergamelog |  | 记录 Admin 在 RCON 的操作日志 |
+| 硬编码 | log |  | 记录服务器的游戏日志 |
 
-启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改该配置文件。
+
+启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改这些配置文件。
 
 除了上表的**可控**配置项，均可在配置文件中修改。否则需要修改脚本 [`bin/ark.sh`](./bin/ark.sh)。
 
@@ -183,8 +188,8 @@
 只有第一次需要执行上述的步骤，配置好之后，只需要简单 3 条命令即可：
 
 1. 停止镜像: `bin/stop.[sh|ps1]`
-2. 运行镜像: `bin/run_docker.[sh|ps1]`
-3. 运行 ARK: `bin/run_ark.[sh|ps1]`
+2. 运行镜像: `bin/run_docker.[sh|ps1]`（参数见脚本内）
+3. 运行 ARK: `bin/run_ark.[sh|ps1]`（参数见脚本内）
 
 > 当服务端已经通过 SteamCMD 下载完成后，其实已经不需要 steam 用户了。此时若需要使用 root 用户，可以在上述命令后面添加 `-u root`
 
@@ -210,20 +215,14 @@
 0 */1 * * * cd ${ARK_DIR} && bin/backup.sh > /tmp/backup.log
 ```
 
+> `bin/backup.[sh|ps1]` 脚本会自动删除 3 天前的存档记录，避免服务器硬盘溢出
+
 
 ## 0x90 安装 MOD
 
-1. 先到 ARK 的创意工坊订阅希望安装的 MOD（订阅后会自动下载）
-2. 同时 Mod 说明里面会提供一个 MOD ID，记下来
-3. 打开 steam 的 MOD 安装目录 `SteamLibrary\steamapps\workshop\content\346110`（346110 就是前面提到的 ARK 游戏客户端的 APP ID）
-4. 目录下有一个以 MOD ID 命名的文件夹，有时可能还会有以 MOD ID 命名的 `*.mod` 文件，复制它们
-5. 粘贴到 ARK 服务端 `./volumes/steam/games/ark/ShooterGame/Content/Mods` 的目录下
-6. 重启 ARK，并且启动命令需要指定 MOD ID 的参数: `bin/run_ark.[sh|ps1] -i ${MOD_ID}`（用逗号分隔多个 MOD ID）
+> 详见 《[在 ARK 安装 MOD 指引](./AddMod.md)》
 
-![](./imgs/09.jpg)
-
-
-当前默认已安装的 MOD 如下，启动服务时按需选择开启即可：
+当前默认已安装的 MOD 如下，使用 `bin/run_ark.[sh|ps1]` 脚本启动服务器时，通过 `-i ${MOD_IDS}` 按需指定即可：
 
 | 订阅地址 | id | name | 用途 |
 |:---:|:---:|:---|:---|
@@ -242,8 +241,8 @@
 - 发布 ARK 环境镜像: `bin/deploy.[sh|ps1]`
 - 运行 ARK 环境容器: `bin/run_docker.[sh|ps1]`
 - 安装 ARK 服务端: `bin/install_game.[sh|ps1]`
-- 运行 ARK 服务端: `bin/run_ark.[sh|ps1]`
-- 进入 ARK 环境容器终端: `bin/terminal.[sh|ps1]`
+- 运行 ARK 服务端: `bin/run_ark.[sh|ps1]`（参数见脚本内）
+- 进入 ARK 环境容器终端: `bin/terminal.[sh|ps1]`（参数见脚本内）
 - 停止 ARK 服务端与环境容器: `bin/stop.[sh|ps1]`
 - 备份 ARK 服务端存档和配置文件: `bin/backup.[sh|ps1]`
 - 清除 ARK 服务端存档、配置和日志文件: `bin/clean.[sh|ps1]`
