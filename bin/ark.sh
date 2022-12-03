@@ -54,8 +54,6 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
 ?GameModIds=${MOD_IDS}\
 ?ActiveMods=${MOD_IDS}\
 ?ServerAutoForceRespawnWildDinosInterval\
-?AllowCrateSpawnsOnTopOfStructures=True\
-    -ForceAllowCaveFlyers \
     -AutoDestroyStructures \
     -NoBattlEye \
     -crossplay \
