@@ -51,7 +51,6 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
 ?serverPVE=True\
 ?RCONEnabled=True\
 ?RCONPort=${RCON_PORT}\
-?GameModIds=${MOD_IDS}\
 ?ActiveMods=${MOD_IDS}\
 ?ServerAutoForceRespawnWildDinosInterval\
 ?AllowCrateSpawnsOnTopOfStructures=True\
