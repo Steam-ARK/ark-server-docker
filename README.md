@@ -15,7 +15,7 @@
 
 ## 0x10 运行环境
 
-![](https://img.shields.io/badge/OS|Linux-red.svg) ![](https://img.shields.io/badge/OS|Windows-blue.svg)
+![](https://img.shields.io/badge/Linux%20x64-red.svg) ![](https://img.shields.io/badge/Windows%20x64-blue.svg)
 
 
 ## 0x10 硬件要求
@@ -162,6 +162,7 @@
 | 硬编码 | serverPVE | True | PVE 模式 |
 | 硬编码 | RCONEnabled | True | 是否启用 RCON 服务器在线管理工具 |
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
+| 硬编码 | servergamelog |  | 记录 Admin 在 RCON 的操作日志 |
 | 硬编码 | ServerAutoForceRespawnWildDinosInterval |  | 服务器重启时强制刷新野生恐龙 |
 | 硬编码 | AllowCrateSpawnsOnTopOfStructures |  | 允许补给箱出现在建筑顶部 |
 | 硬编码 | ForceAllowCaveFlyers |  | 允许翼龙进入洞穴 |
@@ -169,7 +170,6 @@
 | 硬编码 | NoBattlEye |  | 不启动 BattleEye 反作弊工具 |
 | 硬编码 | crossplay |  | 允许跨平台（Epic 和 Steam 互通） |
 | 硬编码 | server |  | 作为服务器启动（可有可无） |
-| 硬编码 | servergamelog |  | 记录 Admin 在 RCON 的操作日志 |
 | 硬编码 | log |  | 记录服务器的游戏日志 |
 
 
@@ -239,7 +239,7 @@
 
 - 构建 ARK 环境镜像: `bin/build.[sh|ps1]`
 - 发布 ARK 环境镜像: `bin/deploy.[sh|ps1]`
-- 运行 ARK 环境容器: `bin/run_docker.[sh|ps1]`
+- 运行 ARK 环境容器: `bin/run_docker.[sh|ps1]`（参数见脚本内）
 - 安装 ARK 服务端: `bin/install_game.[sh|ps1]`
 - 运行 ARK 服务端: `bin/run_ark.[sh|ps1]`（参数见脚本内）
 - 进入 ARK 环境容器终端: `bin/terminal.[sh|ps1]`（参数见脚本内）
