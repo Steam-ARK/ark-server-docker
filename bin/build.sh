@@ -39,9 +39,6 @@ function build_image {
     fi
 }
 
-echo "clean logs ..."
-rm -rf ./log
-
 echo "build image ..."
 image_name=`echo ${PWD##*/}`
 build_image ${image_name} "Dockerfile"
