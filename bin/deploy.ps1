@@ -1,3 +1,4 @@
+# PowerShell
 # ------------------------
 # 发布镜像
 # bin/deploy.ps1 [-n NAMESPACE] [-v VERSION]
