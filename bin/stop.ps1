@@ -4,7 +4,7 @@
 # bin/stop.ps1
 #------------------------------------------------
 
-# 使用 root 用户启动
+# 使用 root 用户停止
 $ENV:U_ID=0; `
 $ENV:G_ID=0; `
 docker-compose down

@@ -4,7 +4,7 @@
 # bin/stop.sh
 #------------------------------------------------
 
-# 使用 root 用户启动
+# 使用 root 用户停止
 U_ID=0 \
 G_ID=0 \
 docker-compose down
