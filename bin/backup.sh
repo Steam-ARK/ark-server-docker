@@ -38,6 +38,6 @@ fi
 
 echo "删除 3 天前的存档 ..."
 _3_DAY_AGO=`date -d "3 day ago" +%Y%m%d`
-rm -f "${BACKUP_DIR}/${_3_DAY_AGO}*"
+ls "${BACKUP_DIR}/${_3_DAY_AGO}*" | xargs rm -f
 
 echo "备份完成: ${LATEST_BACKUP_FILE}"

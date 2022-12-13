@@ -35,4 +35,13 @@ if (Test-Path ${LATEST_BACKUP_DIR}) {
     Remove-Item "${LATEST_BACKUP_DIR}" -Recurse -Force
 }
 
+Write-Host "删除 3 天前的存档 ..."
+$_3_DAY_AGO = (Get-Date).AddDays(-3).ToString('yyyyMMddHH')
+$FILELIST = $(ls "${BACKUP_DIR}/${_3_DAY_AGO}*")
+FOREACH ($file IN $FILELIST) {
+    if (Test-Path $file) {
+        Remove-Item $file -Recurse -Force
+    }
+}
+
 Write-Host "备份完成: ${LATEST_BACKUP_FILE}"
