@@ -33,10 +33,12 @@ RESOURCE_MULT="1.0"
 GROWTH_MULT="1.0"
 XP_MULT="1.0"
 
-set -- `getopt s:m:i:n:p:a:d:h:t:r:g:x: "$@"`
+set -- `getopt u:s:m:i:n:p:a:d:h:t:r:g:x: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
+    -u) USER="$2"
+        shift ;;
     -s) SERVER_NAME="$2"
         shift ;;
     -m) SERVER_MAP="$2"

@@ -1,7 +1,21 @@
 #!/bin/sh
-# 启动 ARK 服务（docker 内执行）
 #------------------------------------------------
+# 启动 ARK 服务（docker 内执行）
 # 更多配置参数见: https://ark.fandom.com/wiki/Server_configuration
+#------------------------------------------------
+# 示例：bin/run_ark.sh 
+#           [-s ${ServerName}]                  # 服务器名称（在 steam 服务器上看到的）
+#           [-m ${MapName}]                     # 地图名
+#           [-i ${ModIds}]                      # 地图 MOD ID 列表，用英文逗号分隔
+#           [-n ${PlayerAmount}]                # 最大玩家数
+#           [-p ${ServerPassword}]              # 服务器密码
+#           [-a ${AminPassword}]                # 管理员密码
+#           [-d ${Difficulty}]                  # 游戏难度
+#           [-h ${HarvestAmount}]               # 资源获得倍率
+#           [-t ${TamingSpeed}]                 # 驯服恐龙倍率
+#           [-r ${ResourcesRespawnPeriod}]      # 资源重生倍率
+#           [-g ${CropGrowthSpeed}]             # 作物生长倍率
+#           [-x ${XPMultiplier}]                # 经验获得倍率
 #------------------------------------------------
 
 
