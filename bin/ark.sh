@@ -6,7 +6,6 @@
 # 示例：bin/run_ark.sh 
 #           [-s ${ServerName}]                  # 服务器名称（在 steam 服务器上看到的）
 #           [-m ${MapName}]                     # 地图名
-#           [-i ${ModIds}]                      # 地图 MOD ID 列表，用英文逗号分隔
 #           [-c ${PlayerAmount}]                # 最大玩家数
 #           [-p ${ServerPassword}]              # 服务器密码
 #           [-a ${AminPassword}]                # 管理员密码
@@ -16,6 +15,7 @@
 #           [-r ${ResourcesRespawnPeriod}]      # 资源重生倍率
 #           [-g ${CropGrowthSpeed}]             # 作物生长倍率
 #           [-x ${XPMultiplier}]                # 经验获得倍率
+#           [-i ${ModIds}]                      # 地图 MOD ID 列表，用英文逗号分隔
 #------------------------------------------------
 
 # ARK 服务端安装路径
@@ -25,7 +25,7 @@ SERVER_NAME="EXP_ARK_Server"
 # 地图名
 SERVER_MAP="TheIsland"
 # 创意工坊的 MOD ID 列表，用英文逗号分隔
-MOD_IDS=""
+GAME_MOD_IDS=""
 # 最大玩家数
 MAX_PLAYERS=10
 # 玩家加入服务器时需要提供的密码
@@ -48,15 +48,13 @@ GROWTH_MULT="1.0"
 XP_MULT="1.0"
 
 
-set -- `getopt s:m:i:c:p:a:d:h:t:r:g:x: "$@"`
+set -- `getopt s:m:c:p:a:d:h:t:r:g:x:i: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
     -s) SERVER_NAME="$2"
         shift ;;
     -m) SERVER_MAP="$2"
-        shift ;;
-    -i) MOD_IDS="$2"
         shift ;;
     -c) MAX_PLAYERS="$2"
         shift ;;
@@ -76,6 +74,8 @@ do
         shift ;;
     -x) XP_MULT="$2"
         shift ;;
+    -i) GAME_MOD_IDS="$2"
+        shift ;;
   esac
   shift
 done
@@ -89,8 +89,8 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
 ?serverPVE=True\
 ?RCONEnabled=True\
 ?RCONPort=${RCON_PORT}\
-?GameModIds=${MOD_IDS}\
-?ActiveMods=${MOD_IDS}\
+?GameModIds=${GAME_MOD_IDS}\
+?ActiveMods=${GAME_MOD_IDS}\
 ?ShowFloatingDamageText=True\
 ?DifficultyOffset=${DIFFICULTY_MULT}\
 ?HarvestAmountMultiplier=${HARVEST_MULT}\

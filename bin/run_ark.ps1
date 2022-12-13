@@ -7,7 +7,6 @@
 #           [-u ${USER}]                        # 指定启动终端的用户，默认非 root（可以用 UID 代替 USERNAME）
 #           [-s ${ServerName}]                  # 服务器名称（在 steam 服务器上看到的）
 #           [-m ${MapName}]                     # 地图名
-#           [-i ${ModIds}]                      # 地图 MOD ID 列表，用英文逗号分隔
 #           [-n ${PlayerAmount}]                # 最大玩家数
 #           [-p ${ServerPassword}]              # 服务器密码
 #           [-a ${AminPassword}]                # 管理员密码
@@ -17,22 +16,23 @@
 #           [-r ${ResourcesRespawnPeriod}]      # 资源重生倍率
 #           [-g ${CropGrowthSpeed}]             # 作物生长倍率
 #           [-x ${XPMultiplier}]                # 经验获得倍率
+#           [-i ${ModIds}]                      # 地图 MOD ID 列表，用英文逗号分隔
 #------------------------------------------------
 
 param(
     [string]$u="1000",
     [string]$s="EXP_ARK_Server",
     [string]$m="TheIsland",
-    [string]$i="",
     [int]$c=10, 
     [string]$p="EXP123456", 
-    [string]$a="ADMIN654321"
-    [string]$d="0.2"
-    [string]$h="1.0"
-    [string]$t="1.0"
-    [string]$r="1.0"
-    [string]$g="1.0"
-    [string]$x="1.0"
+    [string]$a="ADMIN654321",
+    [string]$d="0.2",
+    [string]$h="1.0",
+    [string]$t="1.0",
+    [string]$r="1.0",
+    [string]$g="1.0",
+    [string]$x="1.0",
+    [string]$i=""
 )
 
 $USER = "1000"
@@ -44,7 +44,6 @@ if(![String]::IsNullOrEmpty($u)) {
 
 $SERVER_NAME = $s
 $SERVER_MAP = $m
-$GAME_MOD_IDS = $i
 $MAX_PLAYERS = $c
 $SERVER_PASSWORD = $p
 $ADMIN_PASSWORD = $a
@@ -54,6 +53,7 @@ $TAMING_MULT = $t
 $RESOURCE_MULT = $r
 $GROWTH_MULT = $g
 $XP_MULT = $x
+$GAME_MOD_IDS = $i
 
 
 $CONTAINER_NAME = "ARK_SVC"
@@ -62,7 +62,19 @@ if([String]::IsNullOrEmpty($CONTAINER_ID)) {
     Write-Host "[$CONTAINER_NAME] 容器没有运行 ..."
 
 } else {
-    docker exec -d -u $USER $CONTAINER_ID sh -c "/home/steam/bin/ark.sh -s ${SERVER_NAME} -m ${SERVER_MAP} -i ${GAME_MOD_IDS} -c ${MAX_PLAYERS} -p ${SERVER_PASSWORD} -a ${ADMIN_PASSWORD} -d ${DIFFICULTY_MULT} -h ${HARVEST_MULT} -t ${TAMING_MULT} -r ${RESOURCE_MULT} -g ${GROWTH_MULT} -x ${XP_MULT}"
+    docker exec -d -u $USER $CONTAINER_ID /home/steam/bin/ark.sh `
+        -s "${SERVER_NAME}" `
+        -m "${SERVER_MAP}" `
+        -c "${MAX_PLAYERS}" `
+        -p "${SERVER_PASSWORD}" `
+        -a "${ADMIN_PASSWORD}" `
+        -d "${DIFFICULTY_MULT}" `
+        -h "${HARVEST_MULT}" `
+        -t "${TAMING_MULT}" `
+        -r "${RESOURCE_MULT}" `
+        -g "${GROWTH_MULT}" `
+        -x "${XP_MULT}" `
+        -i "${GAME_MOD_IDS}"
     Write-Host "ARK 启动中 (user=$USER) ..."
     Write-Host "稍后请刷新 steam 服务器列表 ..."
 }
