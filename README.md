@@ -162,7 +162,7 @@
 | 可控 | DifficultyOffset | 0.2 | 游戏难度，最大值 3 。难度越高、怪物等級越高 |
 | 可控 | HarvestAmountMultiplier | 1.0 | 资源获得倍率，最大值 3 。<br/>影响行为包括：砍伐树木、采摘浆果、分解尸体、开采岩石等 |
 | 可控 | TamingSpeedMultiplier | 1.0 | 驯服恐龙倍率，最大值未知。此项越大、驯服速度越快 |
-| 可控 | ResourcesRespawnPeriodMultiplier | 1.0 | 资源重生倍率。此项越小、重生速率越快。<br/>资源包括：树木、岩石、灌木等 |
+| 可控 | ResourcesRespawnPeriodMultiplier | 1.0 | 资源重生倍率。此项越小、重生速率越快。资源包括：树木、岩石、灌木等 |
 | 可控 | CropGrowthSpeedMultiplier | 1.0 | 作物生长倍率。此项越大、作物成长越快 |
 | 可控 | XPMultiplier | 1.0 | 指定玩家、部落和恐龙在各种行动中获得的经验获得倍率。此项越大、获得经验越多 |
 | 硬编码 | serverPVE | True | PVE 模式 |
