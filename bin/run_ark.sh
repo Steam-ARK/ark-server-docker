@@ -33,7 +33,7 @@ RESOURCE_MULT="1.0"
 GROWTH_MULT="1.0"
 XP_MULT="1.0"
 
-set -- `getopt u:s:m:i:n:p:a:d:h:t:r:g:x: "$@"`
+set -- `getopt u:s:m:i:c:p:a:d:h:t:r:g:x: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
@@ -45,7 +45,7 @@ do
         shift ;;
     -i) MOD_IDS="$2"
         shift ;;
-    -n) MAX_PLAYERS="$2"
+    -c) MAX_PLAYERS="$2"
         shift ;;
     -p) SERVER_PASSWORD="$2"
         shift ;;
@@ -79,7 +79,7 @@ CONTAINER_ID=`docker ps -aq --filter name="$CONTAINER_NAME"`
 if [[ "${CONTAINER_ID}x" = "x" ]] ; then
     echo "[$CONTAINER_NAME] 容器没有运行 ..."
 else
-    docker exec -d -u $USER $CONTAINER_ID sh -c "/home/steam/bin/ark.sh -s ${SERVER_NAME} -m ${SERVER_MAP} -i ${GAME_MOD_IDS} -n ${MAX_PLAYERS} -p ${SERVER_PASSWORD} -a ${ADMIN_PASSWORD} -d ${DIFFICULTY_MULT} -h ${HARVEST_MULT} -t ${TAMING_MULT} -r ${RESOURCE_MULT} -g ${GROWTH_MULT} -x ${XP_MULT}"
+    docker exec -d -u $USER $CONTAINER_ID sh -c "/home/steam/bin/ark.sh -s ${SERVER_NAME} -m ${SERVER_MAP} -i ${GAME_MOD_IDS} -c ${MAX_PLAYERS} -p ${SERVER_PASSWORD} -a ${ADMIN_PASSWORD} -d ${DIFFICULTY_MULT} -h ${HARVEST_MULT} -t ${TAMING_MULT} -r ${RESOURCE_MULT} -g ${GROWTH_MULT} -x ${XP_MULT}"
     echo "ARK 启动中 (user=$USER) ..."
     echo "稍后请刷新 steam 服务器列表 ..."
 fi

@@ -7,7 +7,7 @@
 #           [-s ${ServerName}]                  # 服务器名称（在 steam 服务器上看到的）
 #           [-m ${MapName}]                     # 地图名
 #           [-i ${ModIds}]                      # 地图 MOD ID 列表，用英文逗号分隔
-#           [-n ${PlayerAmount}]                # 最大玩家数
+#           [-c ${PlayerAmount}]                # 最大玩家数
 #           [-p ${ServerPassword}]              # 服务器密码
 #           [-a ${AminPassword}]                # 管理员密码
 #           [-d ${Difficulty}]                  # 游戏难度
@@ -17,7 +17,6 @@
 #           [-g ${CropGrowthSpeed}]             # 作物生长倍率
 #           [-x ${XPMultiplier}]                # 经验获得倍率
 #------------------------------------------------
-
 
 # ARK 服务端安装路径
 STEAM_ARK_DIR="/home/steam/games/ark"
@@ -49,7 +48,7 @@ GROWTH_MULT="1.0"
 XP_MULT="1.0"
 
 
-set -- `getopt s:m:i:n:p:a:d:h:t:r:g:x: "$@"`
+set -- `getopt s:m:i:c:p:a:d:h:t:r:g:x: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
@@ -59,7 +58,7 @@ do
         shift ;;
     -i) MOD_IDS="$2"
         shift ;;
-    -n) MAX_PLAYERS="$2"
+    -c) MAX_PLAYERS="$2"
         shift ;;
     -p) SERVER_PASSWORD="$2"
         shift ;;

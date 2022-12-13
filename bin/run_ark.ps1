@@ -24,7 +24,7 @@ param(
     [string]$s="EXP_ARK_Server",
     [string]$m="TheIsland",
     [string]$i="",
-    [int]$n=10, 
+    [int]$c=10, 
     [string]$p="EXP123456", 
     [string]$a="ADMIN654321"
     [string]$d="0.2"
@@ -45,7 +45,7 @@ if(![String]::IsNullOrEmpty($u)) {
 $SERVER_NAME = $s
 $SERVER_MAP = $m
 $GAME_MOD_IDS = $i
-$MAX_PLAYERS = $n
+$MAX_PLAYERS = $c
 $SERVER_PASSWORD = $p
 $ADMIN_PASSWORD = $a
 $DIFFICULTY_MULT = $d
@@ -62,7 +62,7 @@ if([String]::IsNullOrEmpty($CONTAINER_ID)) {
     Write-Host "[$CONTAINER_NAME] 容器没有运行 ..."
 
 } else {
-    docker exec -d -u $USER $CONTAINER_ID sh -c "/home/steam/bin/ark.sh -s ${SERVER_NAME} -m ${SERVER_MAP} -i ${GAME_MOD_IDS} -n ${MAX_PLAYERS} -p ${SERVER_PASSWORD} -a ${ADMIN_PASSWORD} -d ${DIFFICULTY_MULT} -h ${HARVEST_MULT} -t ${TAMING_MULT} -r ${RESOURCE_MULT} -g ${GROWTH_MULT} -x ${XP_MULT}"
+    docker exec -d -u $USER $CONTAINER_ID sh -c "/home/steam/bin/ark.sh -s ${SERVER_NAME} -m ${SERVER_MAP} -i ${GAME_MOD_IDS} -c ${MAX_PLAYERS} -p ${SERVER_PASSWORD} -a ${ADMIN_PASSWORD} -d ${DIFFICULTY_MULT} -h ${HARVEST_MULT} -t ${TAMING_MULT} -r ${RESOURCE_MULT} -g ${GROWTH_MULT} -x ${XP_MULT}"
     Write-Host "ARK 启动中 (user=$USER) ..."
     Write-Host "稍后请刷新 steam 服务器列表 ..."
 }
