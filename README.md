@@ -301,7 +301,7 @@ bin/run_ark.sh  -u "root" -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" \
 5. 退出终端: `exit`
 6. 使用 steam 用户打开 steam 交互终端: `bin/install_game.[sh|ps1]`
 7. 匿名登录 steam : `login anonymous`
-8. 更新 ARK 服务端: `app_update 376030`（游戏约 18G，超级慢而且可能失败）
+8. 更新 ARK 服务端: `app_update 376030 validate`（游戏约 18G，超级慢而且可能失败）
 
 > 之所以要先修改目录权限，是因为 docker 挂载卷时可能会变成仅 root 用户可读写，导致升级失败
 
