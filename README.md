@@ -69,6 +69,8 @@
 2. 匿名登录 steam : `login anonymous`
 3. 下载 ARK 服务端: `app_update 376030`（游戏约 18G，超级慢而且可能失败）
 
+> `app_update 376030` 可能会因为网络原因多次失败，重新执行即可，会断点下载
+
 <details>
 <summary>关于 steam app id 376030 ...</summary>
 <br/>
@@ -286,6 +288,22 @@ bin/run_ark.sh  -u "root" -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" \
                 -m "Ragnarok" -i "1404697612,928102085,2885013943,751991809,731604991,889745138,902616446,1211297684,893904615,895711211,1232362083,618916953,722649005"
 
 ```
+
+
+## 0xB0 升级服务端
+
+因为 steam 的客户端会自动升级，当版本不匹配时，客户端无法找到服务端，此时需要使用 steam 通道在线升级：
+
+1. 启动容器: `bin/run_docker.[sh|ps1]`
+2. 使用 root 用户进入终端: `bin/terminal.[sh|ps1] -u root`
+3. 停止游戏服务端: `ps -ef | grep -v grep | grep ark | awk '{print $2}' | xargs kill`
+4. 修改游戏目录的用户权限为 steam: `chown -R steam:steam /home/steam/games/ark`
+5. 退出终端: `exit`
+6. 使用 steam 用户打开 steam 交互终端: `bin/install_game.[sh|ps1]`
+7. 匿名登录 steam : `login anonymous`
+8. 更新 ARK 服务端: `app_update 376030`（游戏约 18G，超级慢而且可能失败）
+
+> 之所以要先修改目录权限，是因为 docker 挂载卷时可能会变成仅 root 用户可读写，导致升级失败
 
 
 ## 0xE0 更多脚本说明

@@ -1,4 +1,5 @@
 FROM cm2network/steamcmd:root
+RUN usermod -aG root steam
 
 # 更新源
 RUN sed -i s@/deb.debian.org/@/mirrors.aliyun.com/@g /etc/apt/sources.list
