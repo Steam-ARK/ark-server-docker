@@ -294,16 +294,17 @@ bin/run_ark.sh  -u "root" -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" \
 
 因为 steam 的客户端会自动升级，当版本不匹配时，客户端无法找到服务端，此时需要使用 steam 通道在线升级：
 
-1. 启动容器: `bin/run_docker.[sh|ps1]`
-2. 使用 root 用户进入终端: `bin/terminal.[sh|ps1] -u root`
-3. 停止游戏服务端: `ps -ef | grep -v grep | grep ark | awk '{print $2}' | xargs kill`
-4. 修改游戏目录的用户权限为 steam: `chown -R steam:steam /home/steam/games/ark`
-5. 退出终端: `exit`
-6. 使用 steam 用户打开 steam 交互终端: `bin/install_game.[sh|ps1]`
-7. 匿名登录 steam : `login anonymous`
-8. 更新 ARK 服务端: `app_update 376030 validate`（游戏约 18G，超级慢而且可能失败）
+1. 重新构建镜像（因为新版本需要更新 SteamCMD 才能下载）: `bin/build.[sh|ps1] -c OFF`
+2. 启动容器: `bin/run_docker.[sh|ps1]`
+3. 使用 root 用户进入终端: `bin/terminal.[sh|ps1] -u root`
+4. 停止游戏服务端: `ps -ef | grep -v grep | grep ark | awk '{print $2}' | xargs kill`
+5. 修改游戏目录的用户权限为 steam: `chown -R steam:steam /home/steam/games/ark`
+6. 退出终端: `exit`
+7. 使用 steam 用户打开 steam 交互终端: `bin/install_game.[sh|ps1]`
+8. 匿名登录 steam : `login anonymous`
+9. 更新 ARK 服务端: `app_update 376030 validate`（游戏约 18G，超级慢而且可能失败）
 
-> 之所以要先修改目录权限，是因为 docker 挂载卷时可能会变成仅 root 用户可读写，导致升级失败
+> 之所以要先修改目录权限，是因为 docker 挂载卷时可能会变成仅 root 用户可读写，导致升级失败。若升级时可以正常读写文件，不必执行这步。
 
 
 ## 0xE0 更多脚本说明
