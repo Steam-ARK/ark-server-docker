@@ -4,6 +4,7 @@ STEAM_DIR="/home/steam"
 STEAM_GAME_DIR="${STEAM_DIR}/games"
 ARK_APP_DIR="${STEAM_GAME_DIR}/ark"
 
+chmod -R 777 ${STEAM_GAME_DIR}
 
 
 # 保持前台运行，避免 docker 挂起
