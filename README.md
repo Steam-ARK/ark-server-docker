@@ -34,21 +34,17 @@
 
 ### 0x31 预操作
 
-以下命令使用 root 用户执行: 
+1. 使用 root 用户安装 [python3](https://www.python.org/downloads/)、 docker、 docker-compose、 git
+2. 使用 root 用户设置虚拟内存（推荐 4G）
+3. 添加 id=1000 的用户到 docker 组: `usermod -aG docker $(grep 1000 /etc/passwd | awk -F: '{print $1}')`
+4. 切换到 id=1000 的用户: `su - $(grep 1000 /etc/passwd | awk -F: '{print $1}')`
+5. **之后所有步骤使用 id=1000 的用户执行**
 
-1. 安装 [python3](https://www.python.org/downloads/)、 docker、 docker-compose、 git
-2. 设置虚拟内存（推荐 4G）
-3. 创建 steam 用户: `adduser steam`
-4. 添加 steam 用户到 docker 组: `usermod -aG docker steam`
-5. 切换到 steam 用户: `su - steam`
+之所以要使用 id=1000 的用户，是因为下面构建的 [SteamCMD docker](https://hub.docker.com/r/cm2network/steamcmd/) 镜像内也强制使用了 id=1000 的用户（steam）。
 
-之所以要添加 steam 用户，是因为下面构建的 [SteamCMD docker](https://hub.docker.com/r/cm2network/steamcmd/) 镜像内强制使用了 steam 用户。
+由于 docker 需要从宿主机挂载服务端的游戏目录，如果宿主机使用 root 用户挂载，会导致 docker 内的用户没有权限而无法读写。所以宿主机需要使用 id=1000 的用户启动 docker。
 
-由于 docker 需要从宿主机挂载服务端的游戏目录，如果宿主机使用 root 用户挂载，会导致 docker 内的用户没有权限而无法读写。
-
-所以宿主机需要创建一个非 root 用户、而为了方便起见就用了相同的 steam 用户。
-
-> **之后的所有命令必须使用 steam 用户执行**
+> 在 Linux 中， root 的 id=0， 而 1-999 是保留给系统用户的，普通用户的 id 从 1000 开始，docker 内一般只有一个普通用户，故默认 id=1000。
 
 
 ### 0x31 部署镜像
@@ -198,7 +194,6 @@
 2. 运行镜像: `bin/run_docker.[sh|ps1]`（参数见脚本内）
 3. 运行 ARK: `bin/run_ark.[sh|ps1]`（参数见脚本内）
 
-> 当服务端已经通过 SteamCMD 下载完成后，其实已经不需要 steam 用户了。此时若需要使用 root 用户，可以在上述命令后面添加 `-u root`
 
 ![](./imgs/01.jpg)
 
@@ -279,11 +274,11 @@
 #------------------------------------------------
 
 # 启动容器
-bin/run_docker.sh -u "root"
+bin/run_docker.sh
 sleep 5
 
 # 启动 ARK 服务端
-bin/run_ark.sh  -u "root" -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" \
+bin/run_ark.sh  -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" \
                 -h "3" -t "5" -r "0.5" -g "2" -x "10" -c "10" \
                 -m "Ragnarok" -i "1404697612,928102085,2885013943,751991809,731604991,889745138,902616446,1211297684,893904615,895711211,1232362083,618916953,722649005"
 
@@ -296,15 +291,9 @@ bin/run_ark.sh  -u "root" -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" \
 
 1. 重新构建镜像（因为新版本需要更新 SteamCMD 才能下载）: `bin/build.[sh|ps1] -c OFF`
 2. 启动容器: `bin/run_docker.[sh|ps1]`
-3. 使用 root 用户进入终端: `bin/terminal.[sh|ps1] -u root`
-4. 停止游戏服务端: `ps -ef | grep -v grep | grep ark | awk '{print $2}' | xargs kill`
-5. 修改游戏目录的用户权限为 steam: `chown -R steam:steam /home/steam/games/ark`
-6. 退出终端: `exit`
-7. 使用 steam 用户打开 steam 交互终端: `bin/install_game.[sh|ps1]`
-8. 匿名登录 steam : `login anonymous`
-9. 更新 ARK 服务端: `app_update 376030 validate`（游戏约 18G，超级慢而且可能失败）
-
-> 之所以要先修改目录权限，是因为 docker 挂载卷时可能会变成仅 root 用户可读写，导致升级失败。若升级时可以正常读写文件，不必执行这步。
+3. 打开 steam 交互终端: `bin/install_game.[sh|ps1]`
+4. 匿名登录 steam : `login anonymous`
+5. 更新 ARK 服务端: `app_update 376030 validate`（游戏约 18G，超级慢而且可能失败）
 
 
 ## 0xE0 更多脚本说明
