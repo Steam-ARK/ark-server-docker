@@ -278,7 +278,7 @@ bin/run_ark.sh  -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" \
 5. 更新 ARK 服务端: `app_update 376030 validate`（游戏约 18G，超级慢而且可能失败）
 
 
-## 0xE0 更多脚本说明
+## 0xC0 更多脚本说明
 
 - 构建 ARK 环境镜像: `bin/build.[sh|ps1]`
 - 发布 ARK 环境镜像: `bin/deploy.[sh|ps1]`
