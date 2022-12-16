@@ -19,11 +19,11 @@
 
 
 # 启动容器
-bin/run_docker.ps1 -u "root"
+bin/run_docker.ps1
 sleep 5
 
 # 启动 ARK 服务端
-bin/run_ark.ps1 -u "root" -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" `
+bin/run_ark.ps1 -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" `
                 -h "3" -t "5" -r "0.5" -g "2" -x "10" -c "10" `
                 -m "Ragnarok" -i "1404697612,928102085,2885013943,751991809,731604991,889745138,902616446,1211297684,893904615,895711211,1232362083,618916953,722649005"
 
