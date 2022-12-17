@@ -91,7 +91,7 @@
 
 1. 创建 [Github](https://github.com/) 账号（若已有则跳过）
 2. 配置 [Github SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
-3. Frok 此仓库（目的是使用 SSH 下载）: `https://github.com/lyy289065406/ark.git`
+3. Frok 此仓库（目的是使用 SSH 下载）: [`https://github.com/lyy289065406/ark.git`](https://github.com/lyy289065406/ark)
 4. 创建并切换工作目录: `volumes/steam/games`
 5. 使用 SSH 下载到该目录: `git clone --depth 1 --branch master git@github.com:${你的用户名}/ark.git`
 6. 切换工作目录: `cd ark`
