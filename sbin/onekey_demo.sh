@@ -3,6 +3,7 @@
 # 更多配置参数见: https://ark.fandom.com/wiki/Server_configuration
 #------------------------------------------------
 # 示例：sbin/onekey_demo.sh 
+#           [-u ${USER}]                        # 指定启动终端的用户，默认非 root（可以用 UID 代替 USERNAME）
 #           [-s ${ServerName}]                  # 服务器名称（在 steam 服务器上看到的）
 #           [-m ${MapName}]                     # 地图名
 #           [-c ${PlayerAmount}]                # 最大玩家数
