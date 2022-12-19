@@ -153,7 +153,7 @@
 | 可控 | SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
 | 可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
 | 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
-| 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过 RCON 在线管理服务器的密码 |
+| 可控 | ServerAdminPassword | ADMIN654321 | 管理员通过控制台或 RCON 在线管理的密码（默认按 `Tab`） |
 | 可控 | ServerMap | TheIsland | 服务器地图 |
 | 可控 | GameModIds |   | 服务器已安装支持的 MOD ID 列表 |
 | 可控 | ActiveMods |   | 服务器当前激活的 MOD ID 列表 |
@@ -173,7 +173,7 @@
 | 硬编码 | NoBattlEye |  | 不启动 BattleEye 反作弊工具 |
 | 硬编码 | crossplay |  | 允许跨平台（Epic 和 Steam 互通） |
 | 硬编码 | server |  | 作为服务器启动（可有可无） |
-| 硬编码 | log |  | 记录服务器的游戏日志 |
+| 硬编码 | log |  | 在游戏内记录玩家日志（默认按 `L` 查看） |
 
 
 启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改这些配置文件。
