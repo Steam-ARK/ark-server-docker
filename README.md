@@ -157,7 +157,7 @@
 | 可控 | ServerMap | TheIsland | 服务器地图 |
 | 可控 | GameModIds |   | 服务器已安装支持的 MOD ID 列表 |
 | 可控 | ActiveMods |   | 服务器当前激活的 MOD ID 列表 |
-| 可控 | DifficultyOffset | 0.2 | 游戏难度，最大值 3 。难度越高、怪物等級越高 |
+| 可控 | DifficultyOffset | 0.2 | [游戏难度](https://ark.fandom.com/wiki/Difficulty)。难度越高、怪物等級越高 |
 | 可控 | HarvestAmountMultiplier | 1.0 | 资源获得倍率，最大值 3 。<br/>影响行为包括：砍伐树木、采摘浆果、分解尸体、开采岩石等 |
 | 可控 | TamingSpeedMultiplier | 1.0 | 驯服恐龙倍率，最大值未知。此项越大、驯服速度越快 |
 | 可控 | ResourcesRespawnPeriodMultiplier | 1.0 | 资源重生倍率。此项越小、重生速率越快。资源包括：树木、岩石、灌木等 |
@@ -168,12 +168,15 @@
 | 硬编码 | RCONPort | 32330 | RCON 的服务端口 |
 | 硬编码 | servergamelog |  | 记录 Admin 在 RCON 的操作日志 |
 | 硬编码 | ShowFloatingDamageText | True | 类似 RPG 游戏浮现伤害文字 |
+| 硬编码 | AllowFlyerCarryPvE | True | 在 PvE 模式中，允许玩家在骑乘翼龙时、捡起其他恐龙和玩家 |
+| 硬编码 | bAllowPlatformSaddleMultiFloors | True | 允许建筑多个平台楼层 |
 | 硬编码 | ServerAutoForceRespawnWildDinosInterval |  | 服务器重启时强制刷新野生恐龙 |
 | 硬编码 | AutoDestroyStructures |  | 随着时间推移，自动销毁附近废弃的部落建筑 |
 | 硬编码 | NoBattlEye |  | 不启动 BattleEye 反作弊工具 |
 | 硬编码 | crossplay |  | 允许跨平台（Epic 和 Steam 互通） |
+| 硬编码 | usecache |  | 加快 70% 的加载速度 |
 | 硬编码 | server |  | 作为服务器启动（可有可无） |
-| 硬编码 | log |  | 在游戏内记录玩家日志（默认按 `L` 查看） |
+| 硬编码 | log |  | 在游戏内记录部落日志（默认按 `L` 查看） |
 
 
 启动过一次服务端后，会在 `ShooterGame/Saved/Config/LinuxServer/` 目录下自动创建 `GameUserSettings.ini` 和 `Game.ini` 配置文件，可以参考 [ARK Server configuration](https://ark.fandom.com/wiki/Server_configuration) 的参数说明修改这些配置文件。

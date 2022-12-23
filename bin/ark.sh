@@ -92,6 +92,8 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
 ?GameModIds=${GAME_MOD_IDS}\
 ?ActiveMods=${GAME_MOD_IDS}\
 ?ShowFloatingDamageText=True\
+?AllowFlyerCarryPvE=True\
+?bAllowPlatformSaddleMultiFloors=True\
 ?DifficultyOffset=${DIFFICULTY_MULT}\
 ?HarvestAmountMultiplier=${HARVEST_MULT}\
 ?TamingSpeedMultiplier=${TAMING_MULT}\
@@ -102,6 +104,7 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
     -AutoDestroyStructures \
     -NoBattlEye \
     -crossplay \
+    -usecache \
     -server \
     -servergamelog \
     -log \
