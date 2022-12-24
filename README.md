@@ -290,7 +290,8 @@ bin/run_ark.sh  -s "EXP_ARK_Server" -p "EXP123456" -a "ADMIN654321" \
 - 运行 ARK 服务端: `bin/run_ark.[sh|ps1]`（参数见脚本内）
 - 进入 ARK 环境容器终端: `bin/terminal.[sh|ps1]`（参数见脚本内）
 - 停止 ARK 服务端与环境容器: `bin/stop.[sh|ps1]`
-- 备份 ARK 服务端存档和配置文件: `bin/backup.[sh|ps1]`
+- 备份 ARK 服务端存档: `bin/backup.[sh|ps1]`
+- 恢复 ARK 服务端存档: `bin/recover.[sh|ps1]`
 - 清除 ARK 服务端存档、配置和日志文件: `bin/clean.[sh|ps1]`
 
 
