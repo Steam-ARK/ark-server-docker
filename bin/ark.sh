@@ -91,7 +91,6 @@ nohup ${STEAM_ARK_DIR}/ShooterGame/Binaries/Linux/ShooterGameServer ${SERVER_MAP
 ?RCONPort=${RCON_PORT}\
 ?GameModIds=${GAME_MOD_IDS}\
 ?ActiveMods=${GAME_MOD_IDS}\
-?RandomSupplyCratePoints=True\
 ?ShowFloatingDamageText=True\
 ?AllowFlyerCarryPvE=True\
 ?bAllowPlatformSaddleMultiFloors=True\
