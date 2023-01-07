@@ -1,6 +1,6 @@
 # PowerShell
 #------------------------------------------------
-# æ¢å¤ ARK çš„å­˜æ¡£/é…ç½®
+# »Ö¸´ ARK µÄ´æµµ/ÅäÖÃ
 # bin/recover.ps1 -v ${yyyyMMddHH}
 #------------------------------------------------
 
@@ -14,27 +14,27 @@ $ARK_SAVED_DIR = "${ARK_APP_DIR}/ShooterGame/Saved"
 $BACKUP_DIR = "./backup"
 $VERSION = $v
 if([String]::IsNullOrEmpty(${VERSION})) {
-    Write-Host "è¯·è¾“å…¥æ¢å¤æ—¶é—´ç‚¹, æ ¼å¼ä¸º: bin/recover.sh yyyyMMddHH"
-    Write-Host "å¯æ¢å¤çš„å­˜æ¡£æ–‡ä»¶è§ ${BACKUP_DIR} ç›®å½•"
+    Write-Host "ÇëÊäÈë»Ö¸´Ê±¼äµã, ¸ñÊ½Îª: bin/recover.sh yyyyMMddHH"
+    Write-Host "¿É»Ö¸´µÄ´æµµÎÄ¼ş¼û ${BACKUP_DIR} Ä¿Â¼"
     Exit
 }
 
 
-Write-Host "è§£å‹å­˜æ¡£æ–‡ä»¶ ${RECOVER_FILE} ..."
+Write-Host "½âÑ¹´æµµÎÄ¼ş ${RECOVER_FILE} ..."
 $RECOVER_FILE = "${BACKUP_DIR}/${VERSION}.zip"
-unzip ${RECOVER_FILE}
+Expand-Archive -Path ${RECOVER_FILE} -DestinationPath ${BACKUP_DIR}
 
 
-Write-Host "æ¢å¤å­˜æ¡£ ${VERSION} ..."
+Write-Host "»Ö¸´´æµµ ${VERSION} ..."
 $RECOVER_DIR = "${BACKUP_DIR}/${VERSION}"
 Remove-Item ${ARK_SAVED_DIR} -Recurse -Force
-mkdir -p ${ARK_SAVED_DIR}
-mv ${RECOVER_DIR}/* ${ARK_SAVED_DIR}/
+New-Item -Path ${ARK_SAVED_DIR} -ItemType Directory
+Move-Item ${RECOVER_DIR}/* ${ARK_SAVED_DIR}/
 
 
-Write-Host "åˆ é™¤ç¼“å­˜ ..."
+Write-Host "É¾³ı»º´æ ..."
 $CACHE_DIR = "${BACKUP_DIR}/${VERSION}"
-rm -rf "${CACHE_DIR}"
+Remove-Item "${CACHE_DIR}" -Recurse -Force
 
 
-Write-Host "æ¢å¤å®Œæˆ"
+Write-Host "»Ö¸´Íê³É"

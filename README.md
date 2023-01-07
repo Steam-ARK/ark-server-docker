@@ -153,7 +153,7 @@
 | 可控 | SessionName | EXP_ARK_Server | 在 steam 服务器列表上看到的名称 |
 | 可控 | MaxPlayers | 10 | 能进入服务器的最大玩家数量 |
 | 可控 | ServerPassword | EXP123456 | 玩家进入服务器时需要提供的密码 |
-| 可控 | ServerAdminPassword | ADMIN654321 | 管理员激活 RCON 控制台的密码。<br/>游戏内按 `Tab`打开控制台输入命令，游戏外可以安装 [RCON Web Admin](https://github.com/brainfoolong/rcon-web-admin) 输入命令。<br/>ARK 的 RCON 命令详见[这里](https://sc.toolnb.com/tools/ark-tab.html)。 |
+| 可控 | ServerAdminPassword | ADMIN654321 | 管理员激活 RCON 控制台的密码。<br/>游戏内按 `Tab`打开控制台输入命令，游戏外可以安装 [RCON Web Admin](https://github.com/brainfoolong/rcon-web-admin) 输入命令。<br/>ARK 的 RCON 命令详见[这里](https://sc.toolnb.com/tools/ark-tab.html)，物品 ID 详见[这里](https://www.mp-gamer.com/games/ark-se/1716.html)。 |
 | 可控 | ServerMap | TheIsland | 服务器地图 |
 | 可控 | GameModIds |   | 服务器已安装支持的 MOD ID 列表 |
 | 可控 | ActiveMods |   | 服务器当前激活的 MOD ID 列表 |
